@@ -29,6 +29,7 @@ nav{
 .logo{
   text-align: left;
   display: flex;
+  margin-left: 0.5rem;
 }
 
 .logo img{
@@ -38,6 +39,7 @@ nav{
 .nav-links{
   display: flex;
   justify-content: flex-end;
+  margin-right: 0.5rem;
   gap: 0.8rem;
 }
 
