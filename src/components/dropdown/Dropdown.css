@@ -1,0 +1,79 @@
+.dropbtn{
+  border: none;
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: #393E46;
+  color: #EEEEEE;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.chevron{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.dropbtn:hover{
+  background-color: #00ADB5;
+  transition: all 0.2s ease-in-out;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  font-family: inherit;
+  margin: 1rem 0 1rem 1rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+
+.dropdown-content {
+  visibility: hidden;
+  position: absolute;
+  background-color: #393E46;
+  width: 100%;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.dropdown-content ul{
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  gap: 1rem;
+}
+
+.dropdown-content ul li{
+  transition: all 0.3s ease-in-out;
+}
+
+.dropdown-content ul li a:hover{
+  color: #00ADB5;
+}
+
+.dropbtn:focus .chevron{
+  transform: rotateX(180deg);
+}
+
+.dropbtn:focus + .dropdown-content {
+  visibility: visible;
+  opacity: 1;
+}
+
+.dropdown-content:hover{
+  visibility: visible;
+}

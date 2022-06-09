@@ -1,0 +1,20 @@
+.search-bar input{
+  border: none;
+  font-family: inherit;
+  font-size: 1.2rem;
+  height: 35px;
+  border-radius: 0.5rem;
+  text-align: center;
+  color: #EEEEEE;
+  background-color: #222831;
+  margin: 0 0.5rem 0 0.5rem;
+  padding: 0.2rem;
+}
+
+.search-bar input::placeholder{
+  color: #EEEEEE;
+}
+
+.search-bar input:focus{
+  outline-color: #00ADB5;
+}
