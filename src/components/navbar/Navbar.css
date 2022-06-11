@@ -7,7 +7,7 @@ a:-webkit-any-link {
   cursor: pointer;
 }
 
-.navbar{
+.navbar-container{
   color: #EEEEEE;
   font-size: 1.2rem;
   background-color: #393E46;

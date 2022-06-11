@@ -10,22 +10,24 @@ function AnimeList({animelist}) {
   }
 
   return (
-    <div className="anime-container">
-      <div className='anime-list'>
-        {animelist.data.map(item => (
-          <div className="anime-card" key={item.mal_id}>
-            <div className="anime-img">
-              <Link to={`/anime/${item.mal_id}`}>
-                <img src={item.images.webp.large_image_url} className='anime-cover' alt="Anime"/>
-              </Link>
+    <>
+      <div className="anime-container">
+        <div className='anime-list'>
+          {animelist.data.map(item => (
+            <div className="anime-card" key={item.mal_id}>
+              <div className="anime-img">
+                <Link to={`/anime/${item.mal_id}`}>
+                  <img src={item.images.webp.large_image_url} className='anime-cover' alt="Anime"/>
+                </Link>
+              </div>
+              <div className="anime-overview">
+                <h3>{item.title}</h3>
+              </div>
             </div>
-            <div className="anime-overview">
-              <h3>{item.title}</h3>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
