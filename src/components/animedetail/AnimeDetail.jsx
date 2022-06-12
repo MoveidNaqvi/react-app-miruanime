@@ -17,13 +17,13 @@ function AnimeDetail({anime}) {
             <div className="header-title">
               <div>
                 <h2>{anime.data.title_english}</h2>
-                <div className="anime-type"><p>Type: {anime.data.type}</p></div>
+                <h3>{anime.data.title_japanese}</h3>
             </div>
             <div className="back-btn">
               <Link to='/'><MdKeyboardBackspace size={50} className='back-link'/></Link>
             </div>
             </div>
-            <h3>{anime.data.title_japanese}</h3>
+            <div className="anime-type"><p><strong>Type: </strong>{anime.data.type}</p></div>
             <p><strong>Synopsis: </strong>{anime.data.synopsis?.replace('[Written by MAL Rewrite]', '')}</p>
             <div className="genres">
               <ul>
