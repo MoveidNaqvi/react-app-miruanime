@@ -30,9 +30,19 @@ main{
   position: relative;
 }
 
-.header h2{
-  width: 80%;
+.header-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.2rem;
 }
+
+.header-title h2{
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+}
+
+
 
 .header h2,h3 {
   letter-spacing: 0.8px;
@@ -41,7 +51,6 @@ main{
 .header p{
   font-size: 1.2rem;
   letter-spacing: 0.5px;
-  width: 97%;
 }
 
 .genres ul{
@@ -61,10 +70,7 @@ main{
 }
 
 .back-btn{
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
+  margin-left: 0.5rem;
 }
 
 .back-link{

@@ -14,7 +14,15 @@ function AnimeDetail({anime}) {
         <div className="anime cover"><img src={anime.data.images.webp.large_image_url} alt="" className="animeCover" /></div>
         <div className="detail">
           <div className="header">
-            <h2>{anime.data.title_english}</h2>
+            <div className="header-title">
+              <div>
+                <h2>{anime.data.title_english}</h2>
+                <div className="anime-type"><p>Type: {anime.data.type}</p></div>
+            </div>
+            <div className="back-btn">
+              <Link to='/'><MdKeyboardBackspace size={50} className='back-link'/></Link>
+            </div>
+            </div>
             <h3>{anime.data.title_japanese}</h3>
             <p><strong>Synopsis: </strong>{anime.data.synopsis?.replace('[Written by MAL Rewrite]', '')}</p>
             <div className="genres">
@@ -23,9 +31,6 @@ function AnimeDetail({anime}) {
                   <li key={genre.mal_id}>{genre.name}</li>
                 ))}
               </ul>
-            </div>
-            <div className="back-btn">
-              <Link to='/'><MdKeyboardBackspace size={50} className='back-link'/></Link>
             </div>
           </div>
         </div>
