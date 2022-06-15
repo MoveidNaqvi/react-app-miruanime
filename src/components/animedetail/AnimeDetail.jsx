@@ -36,7 +36,7 @@ function AnimeDetail({anime}) {
             <li><div className="statistics-li">
                 <div className="text">
                   <p>Rank</p>
-                  <p>{anime.data.rank}</p>
+                  <p>{anime.data.rank ? anime.data.rank : <p>Unavailable</p>}</p>
                 </div>
                 <div className="icon rank">
                   <GiPodium size={40}/>
@@ -45,7 +45,7 @@ function AnimeDetail({anime}) {
               <li><div className="statistics-li">
                 <div className="text">
                   <p>Popularity</p>
-                  <p>{anime.data.popularity}</p>
+                  <p>{anime.data.popularity ? anime.data.popularity : <p>Unavailable</p>}</p>
                 </div>
                 <div className="icon fire">
                   <AiFillFire size={40}/>
@@ -54,7 +54,7 @@ function AnimeDetail({anime}) {
               <li><div className="statistics-li">
                 <div className="text">
                   <p>Score</p>
-                  <p>{anime.data.score}</p>
+                  <p>{anime.data.score ? anime.data.score : <p>Unavailable</p>}</p>
                 </div>
                 <div className="icon star">
                   <MdStarRate size={40}/>
@@ -63,7 +63,7 @@ function AnimeDetail({anime}) {
               <li><div className="statistics-li">
                 <div className="text">
                   <p>Release Year</p>
-                  <p>{anime.data.year}</p>
+                  <p>{anime.data.year ? anime.data.year : <p>Unavailable</p>}</p>
                 </div>
                 <div className="icon calendar">
                   <MdDateRange size={40}/>
@@ -72,7 +72,7 @@ function AnimeDetail({anime}) {
               <li><div className="statistics-li">
                 <div className="text">
                   <p>Members</p>
-                  <p>{anime.data.members}</p>
+                  <p>{anime.data.members ? anime.data.members : <p>Unavailable</p>}</p>
                 </div>
                 <div className="icon members">
                   <MdPeople size={40}/>
@@ -81,7 +81,7 @@ function AnimeDetail({anime}) {
               <li><div className="statistics-li">
                 <div className="text">
                   <p>Status</p>
-                  <p>{anime.data.status}</p>
+                  <p>{anime.data.status ? anime.data.status : <p>Unavailable</p>}</p>
                 </div>
                 <div className="icon tick">
                   <TiTick size={40}/>
