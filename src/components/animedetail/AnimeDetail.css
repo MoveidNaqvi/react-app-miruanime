@@ -21,13 +21,8 @@ main{
   object-fit: cover;
 }
 
-
 .detail{
   padding: 1rem;
-}
-
-.header{
-  position: relative;
 }
 
 .header-title{
