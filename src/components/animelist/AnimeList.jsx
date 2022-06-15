@@ -21,7 +21,7 @@ function AnimeList({animelist}) {
                 </Link>
               </div>
               <div className="anime-overview">
-                <h3>{item.title}</h3>
+                <h3>{item.title_english ? item.title_english : item.title }</h3>
               </div>
             </div>
           ))}

@@ -16,7 +16,7 @@ function AnimeDetail({anime}) {
           <div className="header">
             <div className="header-title">
               <div>
-                <h2>{anime.data.title_english}</h2>
+                <h2>{anime.data.title_english ? anime.data.title_english : anime.data.title}</h2>
                 <h3>{anime.data.title_japanese}</h3>
             </div>
             <div className="back-btn">
