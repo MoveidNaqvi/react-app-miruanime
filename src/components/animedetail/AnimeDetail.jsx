@@ -23,8 +23,9 @@ function AnimeDetail({anime}) {
               <Link to='/'><MdKeyboardBackspace size={50} className='back-link'/></Link>
             </div>
             </div>
-            <div className="anime-type"><p><strong>Type: </strong>{anime.data.type}</p></div>
             <p><strong>Synopsis: </strong>{anime.data.synopsis?.replace('[Written by MAL Rewrite]', '')}</p>
+            <div className="anime-type"><p><strong>Type: </strong>{anime.data.type}</p></div>
+            <p><strong>Episodes: </strong>{anime.data.episodes}</p>
             <div className="genres">
               <ul>
                 {anime.data.genres.map(genre => (
