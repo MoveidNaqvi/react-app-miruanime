@@ -1,10 +1,9 @@
 import './AnimeDetail.css'
 import { GiPodium } from 'react-icons/gi'
 import { AiFillFire} from 'react-icons/ai'
-import { MdStarRate, MdDateRange, MdPeople, MdKeyboardBackspace } from 'react-icons/md'
+import { MdStarRate, MdDateRange, MdPeople} from 'react-icons/md'
 import { TiTick } from 'react-icons/ti'
 import React from 'react'
-import { Link } from 'react-router-dom'
 import YoutubeEmbed from '../videoembed/YoutubeEmbed'
 
 function AnimeDetail({anime}) {
@@ -18,9 +17,6 @@ function AnimeDetail({anime}) {
               <div>
                 <h2>{anime.data.title_english ? anime.data.title_english : anime.data.title}</h2>
                 <h3>{anime.data.title_japanese}</h3>
-            </div>
-            <div className="back-btn">
-              <Link to='/'><MdKeyboardBackspace size={50} className='back-link'/></Link>
             </div>
             </div>
             <p><strong>Synopsis: </strong>{anime.data.synopsis?.replace('[Written by MAL Rewrite]', '')}</p>

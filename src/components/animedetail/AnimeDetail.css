@@ -67,24 +67,6 @@ main{
   border-radius: 0.5rem;
 }
 
-.back-btn{
-  margin-left: 0.5rem;
-}
-
-.back-link{
-  background-color: #222831;
-  color: #EEEEEE;
-  padding: 0.3rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-
-.back-link:hover{
-  background-color: #00ADB5;
-  transition: all 0.2s ease-in-out;
-}
-
 .stats{
   grid-column: span 2;
 }
@@ -151,7 +133,7 @@ main{
   }
 } */
 
-@media(max-width:1260px){
+@media(max-width:1288px){
   .cover{
     grid-column: span 2;
     text-align: center;
@@ -177,7 +159,7 @@ main{
   }
 }
 
-@media(max-width:644px){
+@media(max-width:672px){
   .statistics{
     grid-template-columns: repeat(2, 1fr);
   }
@@ -193,7 +175,7 @@ main{
   }
 }
 
-@media(max-width:448px){
+@media(max-width:466px){
   .statistics{
     grid-template-columns: 1fr;
   }
