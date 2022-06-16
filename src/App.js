@@ -8,21 +8,24 @@ import SearchPage from './pages/SearchPage';
 import Footer from './components/footer/Footer';
 import UpcomingAnime from './pages/UpcomingAnime';
 import TopAnime from './pages/TopAnime';
+import './App.css'
 
 function App() {
   return (
     <Router>
-        <Navbar />
-      <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/upcoming' element={<UpcomingAnime/>}/>
-        <Route path='/top' element={<TopAnime/>}/>
-        <Route path='/about' element={<About/>} />
-        <Route path='/anime/:id' element={<Anime/>}/>
-        <Route path='/search' element={<SearchPage/>} />
-        <Route path='/*' element={<Error/>} />
-      </Routes>
-        <Footer/>
+      <Navbar />
+      <div className="body-container">
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/upcoming' element={<UpcomingAnime/>}/>
+          <Route path='/top' element={<TopAnime/>}/>
+          <Route path='/about' element={<About/>} />
+          <Route path='/anime/:id' element={<Anime/>}/>
+          <Route path='/search' element={<SearchPage/>} />
+          <Route path='/*' element={<Error/>} />
+        </Routes>
+      </div>
+      <Footer/>
     </Router>
   );
 }
