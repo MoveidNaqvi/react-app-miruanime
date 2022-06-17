@@ -1,6 +1,6 @@
 import React from 'react'
 import reactLogo from '../assets/images/reactLogo.png'
-import { BsSuitHeartFill } from 'react-icons/bs'
+import { BsSuitHeartFill, BsGithub, BsInstagram} from 'react-icons/bs'
 import './About.css'
 
 function About() {
@@ -13,6 +13,12 @@ function About() {
             <p>This website was made with the aim of learning React. This project makes use of the Jikan API.</p>
             <button className="api-btn"><a href="https://jikan.moe/" target='_blank' rel="noreferrer">Check out the API!</a></button>
             <p className='coder'>Coded with<span><BsSuitHeartFill size={20}/></span>by Moveid </p>
+            <div className="social-links">
+              <ul>
+                <li><a href="https://github.com/MoveidNaqvi" target='_blank' rel='noreferrer'><BsGithub size={35}/></a></li>
+                <li><a href="https://www.instagram.com/syedmoveid/" target='_blank' rel='noreferrer'><BsInstagram size={35}/></a></li>
+              </ul>
+            </div>
           </div>
         </div>
         <div className="img-box">

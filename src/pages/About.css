@@ -43,7 +43,7 @@ main{
   color: #EEEEEE;
   padding: 0.6rem;
   border-radius: 0.5rem;
-  margin: 1rem 0 1rem 0;
+  margin: 0.5rem 0 0.5rem 0;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
@@ -67,3 +67,20 @@ main{
   color: maroon;
 }
 
+.social-links{
+  margin-top: 0.5rem;
+}
+
+.social-links ul{
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-links ul li a{
+  transition: all 0.3s ease-in-out;
+}
+
+.social-links ul li a:hover{
+  transition: all 0.3s ease-in-out;
+  color: #00ADB5;
+}
