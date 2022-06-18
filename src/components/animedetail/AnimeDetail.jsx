@@ -6,8 +6,16 @@ import { FaHeart } from 'react-icons/fa'
 import { TiTick } from 'react-icons/ti'
 import React from 'react'
 import YoutubeEmbed from '../videoembed/YoutubeEmbed'
+import { useState } from 'react'
 
 function AnimeDetail({anime}) {
+
+  const [isDisabled, setIsDisabled] = useState(false)
+
+  const handleClick = () => {
+    setIsDisabled(true)
+  }
+
   return (
     <main>
       <div className='grid-container'>
@@ -20,7 +28,7 @@ function AnimeDetail({anime}) {
                 <h3>{anime.data.title_japanese}</h3>
               </div>
               <div className="favourite">
-                <button className='favourite-btn'><FaHeart className='favourite-icon' size={28}/></button>
+                <button className='favourite-btn' onClick={handleClick} disabled={isDisabled}><FaHeart className={isDisabled ? 'favourite-icon disabled' : 'favourite-icon'} size={28}/></button>
               </div>
             </div>
             <p><strong>Synopsis: </strong>{anime.data.synopsis?.replace('[Written by MAL Rewrite]', '')}</p>

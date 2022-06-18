@@ -40,11 +40,18 @@ main{
   border: none;
   background-color: #222831;
   border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.favourite-icon.disabled{
+  transition: all 0.3s ease-in-out;
+  color: red;
 }
 
 .favourite-icon{
   margin: 0.3rem;
   color: #fff;
+  transition: all 0.3s ease-in-out;
 }
 
 
