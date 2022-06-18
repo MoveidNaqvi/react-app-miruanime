@@ -9,6 +9,7 @@ import Footer from './components/footer/Footer';
 import UpcomingAnime from './pages/UpcomingAnime';
 import TopAnime from './pages/TopAnime';
 import './App.css'
+import FavouriteAnime from './pages/FavouriteAnime';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path='/about' element={<About/>} />
           <Route path='/anime/:id' element={<Anime/>}/>
           <Route path='/search' element={<SearchPage/>} />
+          <Route path='/favourite' element={<FavouriteAnime/>}/>
           <Route path='/*' element={<Error/>} />
         </Routes>
       </div>
