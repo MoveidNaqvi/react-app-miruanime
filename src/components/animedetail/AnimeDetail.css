@@ -27,8 +27,26 @@ main{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0.2rem;
 }
+
+.favourite{
+  align-self: flex-start;
+}
+
+.favourite-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: #222831;
+  border-radius: 0.5rem;
+}
+
+.favourite-icon{
+  margin: 0.3rem;
+  color: #fff;
+}
+
 
 .header-title h2{
   font-size: 1.3rem;

@@ -2,6 +2,7 @@ import './AnimeDetail.css'
 import { GiPodium } from 'react-icons/gi'
 import { AiFillFire} from 'react-icons/ai'
 import { MdStarRate, MdDateRange, MdPeople} from 'react-icons/md'
+import { FaHeart } from 'react-icons/fa'
 import { TiTick } from 'react-icons/ti'
 import React from 'react'
 import YoutubeEmbed from '../videoembed/YoutubeEmbed'
@@ -17,7 +18,10 @@ function AnimeDetail({anime}) {
               <div>
                 <h2>{anime.data.title_english ? anime.data.title_english : anime.data.title}</h2>
                 <h3>{anime.data.title_japanese}</h3>
-            </div>
+              </div>
+              <div className="favourite">
+                <button className='favourite-btn'><FaHeart className='favourite-icon' size={28}/></button>
+              </div>
             </div>
             <p><strong>Synopsis: </strong>{anime.data.synopsis?.replace('[Written by MAL Rewrite]', '')}</p>
             <div className="anime-type"><p><strong>Type: </strong>{anime.data.type}</p></div>
