@@ -1,3 +1,4 @@
+import { useState} from 'react'
 import './AnimeDetail.css'
 import { GiPodium } from 'react-icons/gi'
 import { AiFillFire} from 'react-icons/ai'
@@ -6,7 +7,6 @@ import { FaHeart } from 'react-icons/fa'
 import { TiTick } from 'react-icons/ti'
 import React from 'react'
 import YoutubeEmbed from '../videoembed/YoutubeEmbed'
-import { useState } from 'react'
 
 function AnimeDetail({anime}) {
 

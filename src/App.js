@@ -10,25 +10,28 @@ import UpcomingAnime from './pages/UpcomingAnime';
 import TopAnime from './pages/TopAnime';
 import './App.css'
 import FavouriteAnime from './pages/FavouriteAnime';
+import { FavouriteAnimeProvider } from './context/FavouriteAnimeContext'
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <div className="body-container">
-        <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/upcoming' element={<UpcomingAnime/>}/>
-          <Route path='/top' element={<TopAnime/>}/>
-          <Route path='/about' element={<About/>} />
-          <Route path='/anime/:id' element={<Anime/>}/>
-          <Route path='/search' element={<SearchPage/>} />
-          <Route path='/favourite' element={<FavouriteAnime/>}/>
-          <Route path='/*' element={<Error/>} />
-        </Routes>
-      </div>
-      <Footer/>
-    </Router>
+    <FavouriteAnimeProvider>
+      <Router>
+        <Navbar />
+        <div className="body-container">
+          <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/upcoming' element={<UpcomingAnime/>}/>
+            <Route path='/top' element={<TopAnime/>}/>
+            <Route path='/about' element={<About/>} />
+            <Route path='/anime/:id' element={<Anime/>}/>
+            <Route path='/search' element={<SearchPage/>} />
+            <Route path='/favourite' element={<FavouriteAnime/>}/>
+            <Route path='/*' element={<Error/>} />
+          </Routes>
+        </div>
+        <Footer/>
+      </Router>
+    </FavouriteAnimeProvider>
   );
 }
 
