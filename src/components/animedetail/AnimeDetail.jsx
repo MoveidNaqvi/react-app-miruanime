@@ -1,4 +1,5 @@
-import { useState} from 'react'
+import { useContext } from 'react'
+import FavouriteAnimeContext from '../../context/FavouriteAnimeContext'
 import './AnimeDetail.css'
 import { GiPodium } from 'react-icons/gi'
 import { AiFillFire} from 'react-icons/ai'
@@ -10,11 +11,11 @@ import YoutubeEmbed from '../videoembed/YoutubeEmbed'
 
 function AnimeDetail({anime}) {
 
-  const [isDisabled, setIsDisabled] = useState(false)
+  const {addAnimeToFavourite, favourites} = useContext(FavouriteAnimeContext)
+  let storedAnime = favourites.find(o => o.data.mal_id === anime.data.mal_id)
 
-  const handleClick = () => {
-    setIsDisabled(true)
-  }
+  const favouriteBtnDisabled = storedAnime ? true : false
+
 
   return (
     <main>
@@ -28,7 +29,7 @@ function AnimeDetail({anime}) {
                 <h3>{anime.data.title_japanese}</h3>
               </div>
               <div className="favourite">
-                <button className='favourite-btn' onClick={handleClick} disabled={isDisabled}><FaHeart className={isDisabled ? 'favourite-icon disabled' : 'favourite-icon'} size={28}/></button>
+                <button className='favourite-btn' onClick={() => addAnimeToFavourite(anime)} disabled={favouriteBtnDisabled}><FaHeart className={favouriteBtnDisabled ? 'favourite-icon disabled' : 'favourite-icon'} size={28}/></button>
               </div>
             </div>
             <p><strong>Synopsis: </strong>{anime.data.synopsis?.replace('[Written by MAL Rewrite]', '')}</p>
