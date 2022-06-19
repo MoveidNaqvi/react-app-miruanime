@@ -12,11 +12,10 @@ import YoutubeEmbed from '../videoembed/YoutubeEmbed'
 function AnimeDetail({anime}) {
 
   const {addAnimeToFavourite, favourites} = useContext(FavouriteAnimeContext)
-  let storedAnime = favourites && favourites.find(o => o.data.mal_id === anime.data.mal_id)
+  let storedAnime = favourites && favourites.find(o => o.mal_id === anime.data.mal_id)
+
 
   const favouriteBtnDisabled = storedAnime ? true : false
-
-
   return (
     <main>
       <div className='grid-container'>
@@ -29,7 +28,7 @@ function AnimeDetail({anime}) {
                 <h3>{anime.data.title_japanese}</h3>
               </div>
               <div className="favourite">
-                <button className='favourite-btn' onClick={() => addAnimeToFavourite(anime)} disabled={favouriteBtnDisabled}><FaHeart className={favouriteBtnDisabled ? 'favourite-icon disabled' : 'favourite-icon'} size={28}/></button>
+                <button className='favourite-btn' onClick={() => addAnimeToFavourite(anime.data)} disabled={favouriteBtnDisabled}><FaHeart className={favouriteBtnDisabled ? 'favourite-icon disabled' : 'favourite-icon'} size={28}/></button>
               </div>
             </div>
             <p><strong>Synopsis: </strong>{anime.data.synopsis?.replace('[Written by MAL Rewrite]', '')}</p>

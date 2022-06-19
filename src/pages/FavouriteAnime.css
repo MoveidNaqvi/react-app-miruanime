@@ -1,0 +1,9 @@
+.fav-anime{
+  min-height: 100vh;
+}
+
+.fav-anime h1{
+  color: #EEEE;
+  margin: 0rem 0rem 1rem 0rem;
+  text-align: center;
+}

@@ -3,7 +3,7 @@ import './AnimeList.css'
 
 function AnimeList({animelist}) {
 
-  if(animelist.data.length === 0){
+  if( animelist.data.length === 0){
     return <div className="no-anime">
       <h1>No anime found!</h1>
     </div>
