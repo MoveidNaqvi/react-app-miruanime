@@ -12,7 +12,7 @@ import YoutubeEmbed from '../videoembed/YoutubeEmbed'
 function AnimeDetail({anime}) {
 
   const {addAnimeToFavourite, favourites} = useContext(FavouriteAnimeContext)
-  let storedAnime = favourites.find(o => o.data.mal_id === anime.data.mal_id)
+  let storedAnime = favourites && favourites.find(o => o.data.mal_id === anime.data.mal_id)
 
   const favouriteBtnDisabled = storedAnime ? true : false
 
