@@ -1,7 +1,8 @@
 import {Link} from 'react-router-dom'
+import Controls from '../favouriteAnimeControls/Controls'
 import './AnimeList.css'
 
-function AnimeList({animelist}) {
+function AnimeList({animelist, type}) {
 
   if( animelist.data.length === 0){
     return <div className="no-anime">
@@ -20,6 +21,7 @@ function AnimeList({animelist}) {
                   <img src={item.images.webp.large_image_url} className='anime-cover' alt="Anime"/>
                 </Link>
               </div>
+              <Controls type={type}/>
               <div className="anime-overview">
                 <h3>{item.title_english ? item.title_english : item.title }</h3>
               </div>

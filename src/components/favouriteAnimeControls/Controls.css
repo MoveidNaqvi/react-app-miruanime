@@ -1,0 +1,23 @@
+.remove{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.remove-btn{
+  border-radius: 0 0 0 0.5rem;
+  background-color: #393E46;
+  cursor: pointer;
+  border: none;
+}
+
+.remove-btn:hover .x-icon{
+  transition: all 0.3s ease-in-out;
+  color: #00ADB5;
+}
+
+.x-icon{
+  color: #EEEEEE;
+  font-size: 1.8rem;
+  transition: all 0.3s ease-in-out;
+}
