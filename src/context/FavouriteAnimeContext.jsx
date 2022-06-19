@@ -19,9 +19,14 @@ export const FavouriteAnimeProvider = ({children}) => {
     dispatch({type: 'ADD_ANIME_TO_FAVOURITE' , payload: anime})
   }
 
+  const removeAnimeFromFavourite = (id) => {
+    dispatch({type: 'REMOVE_ANIME_FROM_FAVOURITE', payload: id})
+  }
+
   return <FavouriteAnimeContext.Provider value={{
     favourites: state.favourites,
-    addAnimeToFavourite
+    addAnimeToFavourite,
+    removeAnimeFromFavourite
   }}>
     {children}
   </FavouriteAnimeContext.Provider>

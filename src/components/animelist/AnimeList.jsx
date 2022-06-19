@@ -21,7 +21,7 @@ function AnimeList({animelist, type}) {
                   <img src={item.images.webp.large_image_url} className='anime-cover' alt="Anime"/>
                 </Link>
               </div>
-              <Controls type={type}/>
+              <Controls type={type} anime={item}/>
               <div className="anime-overview">
                 <h3>{item.title_english ? item.title_english : item.title }</h3>
               </div>
