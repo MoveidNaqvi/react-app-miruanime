@@ -52,9 +52,21 @@ nav{
   color: #00ADB5;
 }
 
+@media(max-width:613px){
+  nav{
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .search{
+    width: 100%;
+    text-align: center;
+  }
+}
+
 @media(max-width:529px){
   nav{
-    justify-content: space-around;
+    justify-content: center;
     gap: 0.5rem;
   }
 
