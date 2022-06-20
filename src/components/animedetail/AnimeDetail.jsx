@@ -3,9 +3,10 @@ import FavouriteAnimeContext from '../../context/FavouriteAnimeContext'
 import './AnimeDetail.css'
 import { GiPodium } from 'react-icons/gi'
 import { AiFillFire} from 'react-icons/ai'
-import { MdStarRate, MdDateRange, MdPeople} from 'react-icons/md'
+import { MdStarRate, MdDateRange} from 'react-icons/md'
 import { FaHeart } from 'react-icons/fa'
 import { TiTick } from 'react-icons/ti'
+import { BsCloudSun } from 'react-icons/bs'
 import React from 'react'
 import YoutubeEmbed from '../videoembed/YoutubeEmbed'
 
@@ -86,8 +87,8 @@ function AnimeDetail({anime}) {
                   <p>Season</p>
                   <p>{anime.data.season ? anime.data.season.charAt(0).toUpperCase() + anime.data.season.slice(1) : <p>Unavailable</p>}</p>
                 </div>
-                <div className="icon members">
-                  <MdPeople size={40}/>
+                <div className="icon cloud">
+                  <BsCloudSun size={40}/>
                 </div>
               </div></li>
               <li><div className="statistics-li">
