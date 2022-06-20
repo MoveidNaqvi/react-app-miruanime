@@ -12,7 +12,7 @@ function TopAnime() {
   const [topAnime, setTopAnime] = useState([])
   const [page, setPage] = useState(1)
   const [numberOfPages, setNumberOfPages] = useState(0)
-  const {data, isPending, error} = useFetch(`https://api.jikan.moe/v4/top/anime?page=${page}`)
+  const {data, isPending, error} = useFetch(`https://api.jikan.moe/v4/top/anime?type=tv&page=${page}`)
   useEffect(() => {
     setTopAnime(data)
     setNumberOfPages(data && Math.ceil(data.pagination.items.total / 25))

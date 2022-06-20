@@ -14,7 +14,7 @@ function Home() {
   const [airingAnime, setAiringAnime] = useState([])
   const [page, setPage] = useState(1)
   const [numberOfPages, setNumberOfPages] = useState(0)
-  const {data, isPending, error} = useFetch(`https://api.jikan.moe/v4/seasons/now?page=${page}`)
+  const {data, isPending, error} = useFetch(`https://api.jikan.moe/v4/top/anime?type=tv&filter=airing&page=${page}`)
   useEffect(() => {
     setAiringAnime(data)
     setNumberOfPages(data && Math.ceil(data.pagination.items.total / 25))
