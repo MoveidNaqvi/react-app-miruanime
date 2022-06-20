@@ -10,7 +10,7 @@ function About() {
         <div className="info-box">
           <div className="content">
             <h3>About this Project</h3>
-            <p>This website was made with the aim of learning React. This project makes use of the Jikan API.</p>
+            <p>A project website that is created with React and powered by Jikan.</p>
             <button className="api-btn"><a href="https://jikan.moe/" target='_blank' rel="noreferrer">Check out the API!</a></button>
             <p className='coder'>Coded with<span><BsSuitHeartFill size={20}/></span>by Moveid </p>
             <div className="social-links">
