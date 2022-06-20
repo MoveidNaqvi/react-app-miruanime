@@ -8,7 +8,7 @@ import Error from './Error'
 function Anime() {
   
   const {id} = useParams()
-  const {data, isPending, error} = useFetch(`https://api.jikan.moe/v4/anime/${id}`)
+  const {data, isPending, error} = useFetch(`https://api.jikan.moe/v4/anime/${id}/full`)
   return (
     <div className='anime'>
       {error && <Error/>}

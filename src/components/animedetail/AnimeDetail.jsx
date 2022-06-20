@@ -83,8 +83,8 @@ function AnimeDetail({anime}) {
               </div></li>
               <li><div className="statistics-li">
                 <div className="text">
-                  <p>Members</p>
-                  <p>{anime.data.members ? anime.data.members : <p>Unavailable</p>}</p>
+                  <p>Season</p>
+                  <p>{anime.data.season ? anime.data.season.charAt(0).toUpperCase() + anime.data.season.slice(1) : <p>Unavailable</p>}</p>
                 </div>
                 <div className="icon members">
                   <MdPeople size={40}/>
