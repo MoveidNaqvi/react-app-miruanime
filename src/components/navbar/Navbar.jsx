@@ -8,7 +8,7 @@ function Navbar() {
     <div className="navbar-container">
       <nav>
         <div className="logo">
-          <Link to='/'><img src={weblogo} alt="" /></Link>
+          <Link to='/'><img src={weblogo} alt="Website Logo" /></Link>
         </div>
         <div className='search'>
           <Searchbar/>
