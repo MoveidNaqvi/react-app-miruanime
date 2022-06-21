@@ -2,9 +2,8 @@ import { useContext } from 'react'
 import FavouriteAnimeContext from '../../context/FavouriteAnimeContext'
 import './AnimeDetail.css'
 import { IoIosPodium } from 'react-icons/io'
-import { AiFillFire} from 'react-icons/ai'
-import { MdStarRate, MdDateRange, MdLocalFireDepartment} from 'react-icons/md'
-import { FaHeart } from 'react-icons/fa'
+import { MdDateRange, MdLocalFireDepartment} from 'react-icons/md'
+import { FaHeart, FaStar } from 'react-icons/fa'
 import { TiTick } from 'react-icons/ti'
 import { BsCloudSun } from 'react-icons/bs'
 import React from 'react'
@@ -70,7 +69,7 @@ function AnimeDetail({anime}) {
                   <p>{anime.data.score ? anime.data.score : <p>Unavailable</p>}</p>
                 </div>
                 <div className="icon star">
-                  <MdStarRate size={40}/>
+                  <FaStar size={40}/>
                 </div>
               </div></li>
               <li><div className="statistics-li">
