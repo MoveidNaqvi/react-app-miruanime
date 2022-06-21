@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import FavouriteAnimeContext from '../../context/FavouriteAnimeContext'
 import './AnimeDetail.css'
-import { GiPodium } from 'react-icons/gi'
+import { IoIosPodium } from 'react-icons/io'
 import { AiFillFire} from 'react-icons/ai'
 import { MdStarRate, MdDateRange} from 'react-icons/md'
 import { FaHeart } from 'react-icons/fa'
@@ -52,7 +52,7 @@ function AnimeDetail({anime}) {
                   <p>{anime.data.rank ? anime.data.rank : <p>Unavailable</p>}</p>
                 </div>
                 <div className="icon rank">
-                  <GiPodium size={40}/>
+                  <IoIosPodium size={40}/>
                 </div>
               </div></li>
               <li><div className="statistics-li">
