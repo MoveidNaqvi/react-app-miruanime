@@ -3,7 +3,7 @@ import FavouriteAnimeContext from '../../context/FavouriteAnimeContext'
 import './AnimeDetail.css'
 import { IoIosPodium } from 'react-icons/io'
 import { AiFillFire} from 'react-icons/ai'
-import { MdStarRate, MdDateRange} from 'react-icons/md'
+import { MdStarRate, MdDateRange, MdLocalFireDepartment} from 'react-icons/md'
 import { FaHeart } from 'react-icons/fa'
 import { TiTick } from 'react-icons/ti'
 import { BsCloudSun } from 'react-icons/bs'
@@ -61,7 +61,7 @@ function AnimeDetail({anime}) {
                   <p>{anime.data.popularity ? anime.data.popularity : <p>Unavailable</p>}</p>
                 </div>
                 <div className="icon fire">
-                  <AiFillFire size={40}/>
+                  <MdLocalFireDepartment size={40}/>
                 </div>
               </div></li>
               <li><div className="statistics-li">
