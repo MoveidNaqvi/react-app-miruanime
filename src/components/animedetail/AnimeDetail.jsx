@@ -34,6 +34,7 @@ function AnimeDetail({anime}) {
             <p><strong>Synopsis: </strong>{anime.data.synopsis?.replace('[Written by MAL Rewrite]', '')}</p>
             <div className="anime-type"><p><strong>Type: </strong>{anime.data.type}</p></div>
             <p><strong>Episodes: </strong>{anime.data.episodes}</p>
+            <p><strong>Rating: </strong>{anime.data.rating}</p>
             <div className="genres">
               <ul>
                 {anime.data.genres.map(genre => (
