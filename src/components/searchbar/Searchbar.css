@@ -13,9 +13,15 @@
 }
 
 .search-bar input::placeholder{
+  transition: all 0.3s ease-in-out;
   color: #EEEEEE;
 }
 
 .search-bar input:focus{
   outline-color: #00ADB5;
+}
+
+.search-bar input:focus::placeholder{
+  transition: all 0.3s ease-in-out;
+  color: transparent;
 }
