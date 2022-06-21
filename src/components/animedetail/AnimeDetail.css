@@ -90,21 +90,28 @@ main{
   grid-column: span 2;
 }
 
+.rank{
+  color: #00ADB5;
+}
 
 .fire{
-  color: orangered;
+  color: #00ADB5;
 }
 
 .star{
-  color: yellow;
+  color: #00ADB5;
+}
+
+.calendar{
+  color: #00ADB5;
 }
 
 .cloud{
-  color: #fff
+  color: #00ADB5
 }
 
 .tick{
-  color: greenyellow;
+  color: #00ADB5;
 }
 
 .trailer{

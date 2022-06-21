@@ -4,8 +4,8 @@ import './AnimeDetail.css'
 import { IoIosPodium } from 'react-icons/io'
 import { MdDateRange, MdLocalFireDepartment} from 'react-icons/md'
 import { FaHeart, FaStar } from 'react-icons/fa'
-import { TiTick } from 'react-icons/ti'
 import { BsCloudSun } from 'react-icons/bs'
+import { BiMoviePlay } from 'react-icons/bi'
 import React from 'react'
 import YoutubeEmbed from '../videoembed/YoutubeEmbed'
 
@@ -96,7 +96,7 @@ function AnimeDetail({anime}) {
                   <p>{anime.data.status ? anime.data.status : <p>Unavailable</p>}</p>
                 </div>
                 <div className="icon tick">
-                  <TiTick size={40}/>
+                  <BiMoviePlay size={40}/>
                 </div>
               </div></li>
           </ul>
