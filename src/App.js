@@ -1,4 +1,6 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import {ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/Home"
 import About from "./pages/About"
@@ -31,6 +33,7 @@ function App() {
         </div>
         <Footer/>
       </Router>
+      <ToastContainer toastStyle={{backgroundColor: '#222831', color: '#fff', fontFamily: 'inherit'}} closeButton={false}/>
     </FavouriteAnimeProvider>
   );
 }
