@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { toast } from 'react-toastify'
 import FavouriteAnimeContext from '../../context/FavouriteAnimeContext'
 import './AnimeDetail.css'
@@ -22,6 +22,10 @@ function AnimeDetail({anime}) {
       pauseOnHover: false,
     })
   }
+
+  useEffect(() => {
+    window.scroll(0,0)
+  },[])
 
 
   const favouriteBtnDisabled = storedAnime ? true : false
