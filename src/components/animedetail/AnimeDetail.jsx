@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { toast } from 'react-toastify'
 import FavouriteAnimeContext from '../../context/FavouriteAnimeContext'
 import './AnimeDetail.css'
 import { IoIosPodium } from 'react-icons/io'
@@ -14,6 +15,14 @@ function AnimeDetail({anime}) {
   const {addAnimeToFavourite, favourites} = useContext(FavouriteAnimeContext)
   let storedAnime = favourites && favourites.find(o => o.mal_id === anime.data.mal_id)
 
+  const handleFavAnime = (favanime) => {
+    addAnimeToFavourite(favanime)
+    toast.success('Anime added to favourites!', {
+      autoClose: 1500,
+      pauseOnHover: false,
+    })
+  }
+
 
   const favouriteBtnDisabled = storedAnime ? true : false
   return (
@@ -28,7 +37,7 @@ function AnimeDetail({anime}) {
                 <h3>{anime.data.title_japanese}</h3>
               </div>
               <div className="favourite">
-                <button className='favourite-btn' onClick={() => addAnimeToFavourite(anime.data)} disabled={favouriteBtnDisabled}><FaHeart className={favouriteBtnDisabled ? 'favourite-icon disabled' : 'favourite-icon'} size={28}/></button>
+                <button className='favourite-btn' onClick={() => handleFavAnime(anime.data)} disabled={favouriteBtnDisabled}><FaHeart className={favouriteBtnDisabled ? 'favourite-icon disabled' : 'favourite-icon'} size={28}/></button>
               </div>
             </div>
             <p><strong>Synopsis: </strong>{anime.data.synopsis?.replace('[Written by MAL Rewrite]', '')}</p>
