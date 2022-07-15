@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react'
 import { toast } from 'react-toastify'
 import FavouriteAnimeContext from '../../context/FavouriteAnimeContext'
 import './AnimeDetail.css'
-import { IoIosPodium } from 'react-icons/io'
+import { GiPodium } from 'react-icons/gi'
 import { MdDateRange, MdLocalFireDepartment} from 'react-icons/md'
 import { FaHeart, FaStar } from 'react-icons/fa'
 import { BsCloudSun } from 'react-icons/bs'
@@ -65,7 +65,7 @@ function AnimeDetail({anime}) {
                   <p>{anime.data.rank ? anime.data.rank : <p>Unavailable</p>}</p>
                 </div>
                 <div className="icon rank">
-                  <IoIosPodium size={40}/>
+                  <GiPodium size={40}/>
                 </div>
               </div></li>
               <li><div className="statistics-li">
