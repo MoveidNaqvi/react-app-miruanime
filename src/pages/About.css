@@ -1,8 +1,8 @@
 main{
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 88.5vh;
 }
 
 .container{
