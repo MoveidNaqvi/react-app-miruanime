@@ -17,7 +17,7 @@ function Signin() {
     e.preventDefault()
     try {
       setIsLoading(true)
-      const userCredentials = await signInWithEmailAndPassword(auth, email, password)
+      await signInWithEmailAndPassword(auth, email, password)
       console.log(auth.currentUser)
       setIsLoading(false)
       navigate('/favourite')
