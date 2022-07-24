@@ -18,7 +18,7 @@ function Signup() {
     e.preventDefault()
     try {
       setIsLoading(true)
-      const userCredentials = await createUserWithEmailAndPassword(auth, email, password)
+      await createUserWithEmailAndPassword(auth, email, password)
       await updateProfile(auth.currentUser, {
         displayName: name
       })
