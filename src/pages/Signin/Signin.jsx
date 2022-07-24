@@ -1,17 +1,33 @@
-import { Link } from 'react-router-dom'
+import {signInWithEmailAndPassword} from 'firebase/auth'
+import { Link, useNavigate } from 'react-router-dom'
 import {useState} from 'react'
+import { auth } from '../../firebase/config'
+import {toast} from 'react-toastify'
 import './Signin.css'
 
 function Signin() {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [loading, setIsLoading] = useState(false)
 
-  const handleLogin = (e) => {
+  const navigate = useNavigate()
+
+  const handleLogin = async (e) => {
     e.preventDefault()
-    console.log(email, password)
-    setEmail('')
-    setPassword('')
+    try {
+      setIsLoading(true)
+      const userCredentials = await signInWithEmailAndPassword(auth, email, password)
+      console.log(auth.currentUser)
+      setIsLoading(false)
+      navigate('/favourite')
+    } catch (error) {
+      toast.error('Bad user credentials!', {
+        autoClose: 1500,
+        pauseOnHover: false,
+      })
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -19,14 +35,12 @@ function Signin() {
       <div className="sign-in">
         <form className="sign-in-form" onSubmit={handleLogin}>
           <label>
-            <span>Email</span>
-            <input type="email" onChange={(e) => setEmail(e.target.value)} value={email}/>
+            <input type="email" placeholder='Email' onChange={(e) => setEmail(e.target.value)} value={email} required/>
           </label>
           <label>
-            <span>Password</span>
-            <input type="password" onChange={(e) => setPassword(e.target.value)} value={password}/>
+            <input type="password" placeholder='Password' onChange={(e) => setPassword(e.target.value)} value={password} required/>
           </label>
-          <button className="sign-in-btn">Login</button>
+          <button className="sign-in-btn" disabled={loading}>{!loading ? 'Login' : 'loading...'}</button>
           <p className="alternative">Don't have an account? <Link to='/sign-up' className='register-link'>Register here!</Link></p>
         </form>
       </div>
