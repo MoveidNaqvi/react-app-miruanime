@@ -12,7 +12,9 @@ import UpcomingAnime from './pages/UpcomingAnime';
 import TopAnime from './pages/TopAnime';
 import './App.css'
 import FavouriteAnime from './pages/FavouriteAnime';
+import Signin from './pages/Signin/Signin'
 import { FavouriteAnimeProvider } from './context/FavouriteAnimeContext'
+import Signup from './pages/Signup/Signup';
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
             <Route path='/anime/:id' element={<Anime/>}/>
             <Route path='/search' element={<SearchPage/>} />
             <Route path='/favourite' element={<FavouriteAnime/>}/>
+            <Route path='/sign-in' element={<Signin/>}/>
+            <Route path='/sign-up' element={<Signup/>}/>
             <Route path='/*' element={<Error/>} />
           </Routes>
         </div>
