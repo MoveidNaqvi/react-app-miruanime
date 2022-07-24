@@ -1,16 +1,18 @@
 import { useContext, useEffect } from 'react'
 import { toast } from 'react-toastify'
 import FavouriteAnimeContext from '../../context/FavouriteAnimeContext'
+import useAuthStatus from '../../hooks/useAuthStatus'
 import './AnimeDetail.css'
 import { GiPodium } from 'react-icons/gi'
 import { MdDateRange, MdLocalFireDepartment} from 'react-icons/md'
 import { FaHeart, FaStar } from 'react-icons/fa'
 import { BsCloudSun } from 'react-icons/bs'
 import { BiMoviePlay } from 'react-icons/bi'
-import React from 'react'
 import YoutubeEmbed from '../videoembed/YoutubeEmbed'
 
 function AnimeDetail({anime}) {
+
+  const {loggedIn} = useAuthStatus()
 
   const {addAnimeToFavourite, favourites} = useContext(FavouriteAnimeContext)
   let storedAnime = favourites && favourites.find(o => o.mal_id === anime.data.mal_id)
@@ -40,9 +42,9 @@ function AnimeDetail({anime}) {
                 <h2>{anime.data.title_english ? anime.data.title_english : anime.data.title}</h2>
                 <h3>{anime.data.title_japanese}</h3>
               </div>
-              <div className="favourite">
+              {loggedIn && <div className="favourite">
                 <button className='favourite-btn' onClick={() => handleFavAnime(anime.data)} disabled={favouriteBtnDisabled}><FaHeart className={favouriteBtnDisabled ? 'favourite-icon disabled' : 'favourite-icon'} size={28}/></button>
-              </div>
+              </div>}
             </div>
             <p><strong>Synopsis: </strong>{anime.data.synopsis?.replace('[Written by MAL Rewrite]', '')}</p>
             <div className="anime-type"><p><strong>Type: </strong>{anime.data.type}</p></div>
