@@ -15,6 +15,7 @@ import FavouriteAnime from './pages/FavouriteAnime';
 import Signin from './pages/Signin/Signin'
 import { FavouriteAnimeProvider } from './context/FavouriteAnimeContext'
 import Signup from './pages/Signup/Signup';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
             <Route path='/about' element={<About/>} />
             <Route path='/anime/:id' element={<Anime/>}/>
             <Route path='/search' element={<SearchPage/>} />
-            <Route path='/favourite' element={<FavouriteAnime/>}/>
+            <Route path='/favourite' element={<PrivateRoute><FavouriteAnime/></PrivateRoute>}/>
             <Route path='/sign-in' element={<Signin/>}/>
             <Route path='/sign-up' element={<Signup/>}/>
             <Route path='/*' element={<Error/>} />
