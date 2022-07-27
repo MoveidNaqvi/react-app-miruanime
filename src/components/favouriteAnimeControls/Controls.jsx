@@ -10,7 +10,7 @@ function Controls({type, anime}) {
     <>
     {type === 'favourite' && (
       <div className="remove">
-        <button className="remove-btn" onClick={() => removeAnimeFromFavourite(anime.mal_id)}><TiTimes className='x-icon'/></button>
+        <button className="remove-btn" onClick={() => removeAnimeFromFavourite(anime.id)}><TiTimes className='x-icon'/></button>
       </div>
     )}
     </>
