@@ -14,8 +14,8 @@ function AnimeDetail({anime}) {
 
   const {loggedIn} = useAuthStatus()
 
-  const {addAnimeToFavourite, favourites} = useContext(FavouriteAnimeContext)
-  let storedAnime = favourites && favourites.find(o => o.mal_id === anime.data.mal_id)
+  const {addAnimeToFavourite} = useContext(FavouriteAnimeContext)
+  // let storedAnime = favourites && favourites.find(o => o.mal_id === anime.data.mal_id)
 
   const handleFavAnime = (favanime) => {
     addAnimeToFavourite(favanime)
@@ -24,13 +24,13 @@ function AnimeDetail({anime}) {
       pauseOnHover: false,
     })
   }
-
+ 
   useEffect(() => {
     window.scroll(0,0)
   },[])
 
 
-  const favouriteBtnDisabled = storedAnime ? true : false
+  // const favouriteBtnDisabled = storedAnime ? true : false
   return (
     <main>
       <div className='grid-container'>
@@ -43,7 +43,7 @@ function AnimeDetail({anime}) {
                 <h3>{anime.data.title_japanese}</h3>
               </div>
               {loggedIn && <div className="favourite">
-                <button className='favourite-btn' onClick={() => handleFavAnime(anime.data)} disabled={favouriteBtnDisabled}><FaHeart className={favouriteBtnDisabled ? 'favourite-icon disabled' : 'favourite-icon'} size={28}/></button>
+                <button className='favourite-btn' onClick={() => handleFavAnime(anime.data)}><FaHeart className='favourite-icon disabled' size={28}/></button>
               </div>}
             </div>
             <p><strong>Synopsis: </strong>{anime.data.synopsis?.replace('[Written by MAL Rewrite]', '')}</p>
