@@ -3,13 +3,11 @@ const favouriteAnimeReducer = (state, action) => {
 
     case 'ADD_ANIME_TO_FAVOURITE':
       return{
-        ...state,
-        favourites: [action.payload, ...state.favourites]
+        favourites: action.payload
       }
     case 'REMOVE_ANIME_FROM_FAVOURITE':
       return{
-        ...state,
-        favourites: state.favourites.filter(favourite => favourite.mal_id !== action.payload)
+        favourites: null
       }
 
     default:
