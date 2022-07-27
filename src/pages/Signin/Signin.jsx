@@ -18,7 +18,6 @@ function Signin() {
     try {
       setIsLoading(true)
       await signInWithEmailAndPassword(auth, email, password)
-      console.log(auth.currentUser)
       setIsLoading(false)
       navigate('/favourite')
     } catch (error) {
