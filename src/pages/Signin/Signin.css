@@ -69,6 +69,17 @@
   transition: 0.2s all ease-in-out;
 }
 
+.other-login{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.google-icon{
+  cursor: pointer;
+}
+
 .register-link{
   text-decoration: none;
   color: #00ADB5 !important;
