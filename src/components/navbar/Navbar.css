@@ -39,6 +39,7 @@ nav{
 .nav-links{
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   margin-right: 0.5rem;
   gap: 0.8rem;
 }
@@ -50,6 +51,23 @@ nav{
 .nav-links a:hover{
   transition: all 0.2s ease-in-out;
   color: #00ADB5;
+}
+
+.logout-btn{
+  border: none;
+  font-family: inherit;
+  font-size: 1.2rem;
+  background-color: #222831;
+  color: #EEEEEE;
+  padding: 0.4rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.logout-btn:hover{
+  background-color: #00ADB5;
+  transition: all 0.2s ease-in-out;
 }
 
 @media(max-width:613px){
