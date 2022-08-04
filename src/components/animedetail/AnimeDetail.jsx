@@ -1,4 +1,5 @@
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import {useParams} from 'react-router-dom'
 import { toast } from 'react-toastify'
 import FavouriteAnimeContext from '../../context/FavouriteAnimeContext'
 import useAuthStatus from '../../hooks/useAuthStatus'
@@ -9,12 +10,16 @@ import { FaHeart, FaStar } from 'react-icons/fa'
 import { BsCloudSun } from 'react-icons/bs'
 import { BiMoviePlay } from 'react-icons/bi'
 import YoutubeEmbed from '../videoembed/YoutubeEmbed'
+import { doc, onSnapshot } from 'firebase/firestore'
+import { auth, db } from '../../firebase/config'
 
 function AnimeDetail({anime}) {
 
   const {loggedIn} = useAuthStatus()
+  let { id } = useParams()
 
   const {addAnimeToFavourite} = useContext(FavouriteAnimeContext)
+  const [favouriteBtnDisabled, setfavouriteBtnDisabled] = useState(null)
   // let storedAnime = favourites && favourites.find(o => o.mal_id === anime.data.mal_id)
 
   const handleFavAnime = (favanime) => {
@@ -27,7 +32,19 @@ function AnimeDetail({anime}) {
  
   useEffect(() => {
     window.scroll(0,0)
-  },[])
+    if(auth.currentUser != null){
+      const ref = doc(db, 'anime', id)
+      const unsub = onSnapshot(ref, (snapshot) => {
+        if(snapshot.data()){
+          setfavouriteBtnDisabled(true)
+        }
+        else{
+          setfavouriteBtnDisabled(false)
+        }
+      })
+      return unsub
+    }
+  },[id, setfavouriteBtnDisabled])
 
 
   // const favouriteBtnDisabled = storedAnime ? true : false
@@ -42,8 +59,8 @@ function AnimeDetail({anime}) {
                 <h2>{anime.data.title_english ? anime.data.title_english : anime.data.title}</h2>
                 <h3>{anime.data.title_japanese}</h3>
               </div>
-              {loggedIn && <div className="favourite">
-                <button className='favourite-btn' onClick={() => handleFavAnime(anime.data)}><FaHeart className='favourite-icon disabled' size={28}/></button>
+              {loggedIn && favouriteBtnDisabled != null && <div className="favourite">
+                <button className='favourite-btn' onClick={() => handleFavAnime(anime.data)} disabled={favouriteBtnDisabled}><FaHeart className={favouriteBtnDisabled ? 'favourite-icon disabled' : 'favourite-icon'} size={28}/></button>
               </div>}
             </div>
             <p><strong>Synopsis: </strong>{anime.data.synopsis?.replace('[Written by MAL Rewrite]', '')}</p>
