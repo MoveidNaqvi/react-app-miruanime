@@ -33,7 +33,7 @@ function AnimeDetail({anime}) {
   useEffect(() => {
     window.scroll(0,0)
     if(auth.currentUser != null){
-      const ref = doc(db, 'anime', id)
+      const ref = doc(db, 'users', auth.currentUser.uid)
       const unsub = onSnapshot(ref, (snapshot) => {
         if(snapshot.data()){
           setfavouriteBtnDisabled(true)
