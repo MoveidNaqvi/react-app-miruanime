@@ -1,10 +1,11 @@
 import {createUserWithEmailAndPassword, updateProfile, signInWithPopup, GoogleAuthProvider} from 'firebase/auth'
-import {auth} from '../../firebase/config'
+import {auth, db} from '../../firebase/config'
 import { Link, useNavigate } from 'react-router-dom'
 import {useState} from 'react'
 import { toast } from 'react-toastify'
 import {ImGoogle3} from 'react-icons/im'
 import './Signup.css'
+import { doc, setDoc } from 'firebase/firestore'
 
 function Signup() {
 
@@ -22,6 +23,10 @@ function Signup() {
       await createUserWithEmailAndPassword(auth, email, password)
       await updateProfile(auth.currentUser, {
         displayName: name
+      })
+      const userDocRef = doc(db, 'users', auth.currentUser.uid)
+      await setDoc(userDocRef, {
+        favourites: []
       })
       setIsLoading(false)
       setName('')
