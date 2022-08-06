@@ -1,6 +1,6 @@
 import { createContext, useReducer} from "react";
 import { auth, db } from "../firebase/config";
-import {setDoc, deleteDoc, doc, arrayUnion} from 'firebase/firestore'
+import {setDoc, deleteDoc, doc} from 'firebase/firestore'
 import favouriteAnimeReducer from "./FavouriteAnimeReducer";
 
 const FavouriteAnimeContext = createContext()
@@ -18,7 +18,7 @@ export const FavouriteAnimeProvider = ({children}) => {
     try {
       const ref = doc(db, 'users', auth.currentUser.uid)
       const addedAnime = await setDoc(ref, {
-        favourites: arrayUnion(animeCopy)
+        favourites: [animeCopy]
       })
       dispatch({type: 'ADD_ANIME_TO_FAVOURITE' , payload: addedAnime})
     } catch (error) {
