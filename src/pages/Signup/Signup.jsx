@@ -26,7 +26,8 @@ function Signup() {
       })
       const userDocRef = doc(db, 'users', auth.currentUser.uid)
       await setDoc(userDocRef, {
-        favourites: []
+        favourites: [],
+        animeID: []
       })
       setIsLoading(false)
       setName('')
