@@ -10,7 +10,7 @@ import { FaHeart, FaStar } from 'react-icons/fa'
 import { BsCloudSun } from 'react-icons/bs'
 import { BiMoviePlay } from 'react-icons/bi'
 import YoutubeEmbed from '../videoembed/YoutubeEmbed'
-import { doc, onSnapshot } from 'firebase/firestore'
+import { collection, doc, getDoc, onSnapshot, query, where } from 'firebase/firestore'
 import { auth, db } from '../../firebase/config'
 
 function AnimeDetail({anime}) {
@@ -24,27 +24,74 @@ function AnimeDetail({anime}) {
 
   const handleFavAnime = (favanime) => {
     addAnimeToFavourite(favanime)
+    getDocRef()
     toast.success('Anime added to favourites!', {
       autoClose: 1500,
       pauseOnHover: false,
     })
   }
  
-  useEffect(() => {
-    window.scroll(0,0)
-    if(auth.currentUser != null){
-      const ref = doc(db, 'users', auth.currentUser.uid)
-      const unsub = onSnapshot(ref, (snapshot) => {
-        if(snapshot.data()){
-          setfavouriteBtnDisabled(true)
-        }
-        else{
-          setfavouriteBtnDisabled(false)
-        }
-      })
-      return unsub
+  // useEffect(() => {
+  //   window.scroll(0,0)
+  //   if(auth.currentUser != null){
+  //     const ref = doc(db, 'users', auth.currentUser.uid)
+  //     const unsub = onSnapshot(ref, (snapshot) => {
+  //       if(snapshot.data()){
+  //         setfavouriteBtnDisabled(true)
+  //       }
+  //       else{
+  //         setfavouriteBtnDisabled(false)
+  //       }
+  //     })
+  //     return unsub
+  //   }
+  // },[id, setfavouriteBtnDisabled])
+  // const docRef = collection(db, 'users')
+  // const q = query(docRef, where('animeID', 'array-contains', parseInt(id)))
+  // onSnapshot(q, (snapshot) => {
+  //   let results = []
+  //   snapshot.docs.forEach((doc) => {
+  //     results.push({...doc.data(), id: doc.id})
+  //   })
+  //   if(results.length > 0){
+  //     setfavouriteBtnDisabled(true)
+  //   }
+  //   else{
+  //     setfavouriteBtnDisabled(false)
+  //   }
+  // }, (error) => {
+  //   console.log(error)
+  // })
+  const getDocRef = async () => {
+    const docRef = doc(db, "users", auth.currentUser.uid);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      const animeID = docSnap.data().animeID
+      if(animeID.includes(parseInt(id))){
+        setfavouriteBtnDisabled(true)
+      }
+      else{
+        setfavouriteBtnDisabled(false)
+      }
+      // animeID.map(aID => {
+      //   if(aID === parseInt(id)){
+      //     setfavouriteBtnDisabled(true)
+      //   }
+      // })
+    } else {
+      // doc.data() will be undefined in this case
+      console.log("No such document!");
     }
-  },[id, setfavouriteBtnDisabled])
+  }
+
+  useEffect(() => {
+    getDocRef()
+  },[])
+
+  
+
+  
+  
 
 
   // const favouriteBtnDisabled = storedAnime ? true : false
@@ -60,7 +107,7 @@ function AnimeDetail({anime}) {
                 <h3>{anime.data.title_japanese}</h3>
               </div>
               {loggedIn && favouriteBtnDisabled != null && <div className="favourite">
-                <button className='favourite-btn' onClick={() => handleFavAnime(anime.data)} disabled={favouriteBtnDisabled}><FaHeart className={favouriteBtnDisabled ? 'favourite-icon disabled' : 'favourite-icon'} size={28}/></button>
+                <button className='favourite-btn' onClick={() => handleFavAnime(anime.data)} disabled={favouriteBtnDisabled} ><FaHeart className={favouriteBtnDisabled ? 'favourite-icon disabled' : 'favourite-icon'} size={28}/></button>
               </div>}
             </div>
             <p><strong>Synopsis: </strong>{anime.data.synopsis?.replace('[Written by MAL Rewrite]', '')}</p>
