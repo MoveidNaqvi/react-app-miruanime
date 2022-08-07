@@ -19,9 +19,6 @@ function FavouriteAnime() {
       if(snapshot.data()){
         setDocuments({...snapshot.data(), id: snapshot.id})
         isLoading(false)
-      }else{
-        console.log('You have not added any aime')
-        isLoading(false)
       }
     }, (err) => {
       console.log('Failed to get document')
@@ -32,13 +29,13 @@ function FavouriteAnime() {
   const [favouriteAnimeArray] = [{data:  documents?.favourites}]
 
   return (
-    <>
+    <div className='fav-anime'>
       <h1>Welcome {auth.currentUser.displayName}</h1>
-      {documents ? <div className='fav-anime'>
+      {documents ? <>
         <AnimeList animelist={favouriteAnimeArray} type='favourite'/>
         <span className='about-me-link'><Link to='/about'><BsQuestionCircleFill className='question' size={40}/></Link></span>
-      </div> : <h1>No anime</h1>}
-    </>
+      </> : <h1>No anime added yet!</h1>}
+    </div>
   )
 }
 
