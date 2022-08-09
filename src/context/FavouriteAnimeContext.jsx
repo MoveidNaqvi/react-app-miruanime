@@ -29,7 +29,6 @@ export const FavouriteAnimeProvider = ({children}) => {
 
 
   const addAnimeToFavourite = async anime => {
-    getFavRef()
     const animeCopy = {...anime, uid: auth.currentUser.uid}
     try {
       const ref = doc(db, 'users', auth.currentUser.uid)
@@ -51,7 +50,8 @@ export const FavouriteAnimeProvider = ({children}) => {
   return <FavouriteAnimeContext.Provider value={{
     favourites: state.favourites,
     addAnimeToFavourite,
-    removeAnimeFromFavourite
+    removeAnimeFromFavourite,
+    getFavRef
   }}>
     {children}
   </FavouriteAnimeContext.Provider>
