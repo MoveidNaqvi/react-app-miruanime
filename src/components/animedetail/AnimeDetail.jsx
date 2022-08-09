@@ -10,7 +10,7 @@ import { FaHeart, FaStar } from 'react-icons/fa'
 import { BsCloudSun } from 'react-icons/bs'
 import { BiMoviePlay } from 'react-icons/bi'
 import YoutubeEmbed from '../videoembed/YoutubeEmbed'
-import { collection, doc, getDoc, onSnapshot, query, where } from 'firebase/firestore'
+import { doc, getDoc} from 'firebase/firestore'
 import { auth, db } from '../../firebase/config'
 
 function AnimeDetail({anime}) {
@@ -18,11 +18,12 @@ function AnimeDetail({anime}) {
   const {loggedIn} = useAuthStatus()
   let { id } = useParams()
 
-  const {addAnimeToFavourite} = useContext(FavouriteAnimeContext)
+  const {addAnimeToFavourite, getFavRef} = useContext(FavouriteAnimeContext)
   const [favouriteBtnDisabled, setfavouriteBtnDisabled] = useState(null)
   // let storedAnime = favourites && favourites.find(o => o.mal_id === anime.data.mal_id)
 
   const handleFavAnime = (favanime) => {
+    getFavRef()
     addAnimeToFavourite(favanime)
     getDocRef()
     toast.success('Anime added to favourites!', {
@@ -85,6 +86,7 @@ function AnimeDetail({anime}) {
   }
 
   useEffect(() => {
+    getFavRef()
     getDocRef()
   },[])
 
