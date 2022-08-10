@@ -1,8 +1,9 @@
 import { createContext, useReducer} from "react";
 import { auth, db } from "../firebase/config";
-import {deleteDoc, doc, getDoc, updateDoc} from 'firebase/firestore'
+import {arrayRemove, doc, getDoc, updateDoc} from 'firebase/firestore'
 import favouriteAnimeReducer from "./FavouriteAnimeReducer";
 import { useState } from "react";
+import useAuthStatus from "../hooks/useAuthStatus";
 
 const FavouriteAnimeContext = createContext()
 
@@ -14,9 +15,11 @@ export const FavouriteAnimeProvider = ({children}) => {
 
   const [state, dispatch] = useReducer(favouriteAnimeReducer, initialState)
   const [fav, setFav] = useState([])
+  const {loggedIn} = useAuthStatus()
 
 
   const getFavRef = async () => {
+    if(loggedIn){
     const docRef = doc(db, 'users', auth.currentUser.uid)
     const docSnap = await getDoc(docRef)
     if(docSnap.exists()){
@@ -26,6 +29,7 @@ export const FavouriteAnimeProvider = ({children}) => {
       console.log('error')
     }
   }
+}
 
 
   const addAnimeToFavourite = async anime => {
@@ -42,9 +46,21 @@ export const FavouriteAnimeProvider = ({children}) => {
     }
   }
 
-  const removeAnimeFromFavourite = async (id) => {
-    await deleteDoc(doc(db, 'anime', id))
-    dispatch({type: 'REMOVE_ANIME_FROM_FAVOURITE'})
+  const removeAnimeFromFavourite = async (mal_id) => {
+    const docRef = doc(db, 'users', auth.currentUser.uid)
+    await updateDoc(docRef, {
+      favourites: fav.favourites.filter(f => f.mal_id !== mal_id),
+      animeID: arrayRemove(mal_id)
+    })
+    // const docSnap = await getDoc(docRef)
+    // if(docSnap.exists()){
+    //   await updateDoc(docRef)
+    // }
+    // else{
+    //   console.log('error')
+    // }
+    // await deleteDoc(doc(db, 'anime', id))
+    // dispatch({type: 'REMOVE_ANIME_FROM_FAVOURITE'})
   }
 
   return <FavouriteAnimeContext.Provider value={{
