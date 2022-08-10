@@ -64,6 +64,7 @@ function AnimeDetail({anime}) {
   //   console.log(error)
   // })
   const getDocRef = async () => {
+    if(loggedIn){
     const docRef = doc(db, "users", auth.currentUser.uid);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
@@ -84,11 +85,12 @@ function AnimeDetail({anime}) {
       console.log("No such document!");
     }
   }
+}
 
   useEffect(() => {
     getFavRef()
     getDocRef()
-  },[])
+  },[loggedIn])
 
   
 
