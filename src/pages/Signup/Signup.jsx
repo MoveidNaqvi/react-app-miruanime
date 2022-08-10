@@ -52,6 +52,11 @@ function Signup() {
       setIsLoading(true)
       const provider = new GoogleAuthProvider()
       await signInWithPopup(auth, provider)
+      const userDocRef = doc(db, 'users', auth.currentUser.uid)
+      await setDoc(userDocRef, {
+        favourites: [],
+        animeID: []
+      })
       setIsLoading(false)
       navigate('/favourite')
     } catch (error) {
