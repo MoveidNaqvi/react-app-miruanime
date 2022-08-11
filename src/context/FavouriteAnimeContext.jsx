@@ -4,6 +4,7 @@ import {arrayRemove, doc, getDoc, updateDoc} from 'firebase/firestore'
 import favouriteAnimeReducer from "./FavouriteAnimeReducer";
 import { useState } from "react";
 import useAuthStatus from "../hooks/useAuthStatus";
+import { toast } from 'react-toastify'
 
 const FavouriteAnimeContext = createContext()
 
@@ -42,16 +43,20 @@ export const FavouriteAnimeProvider = ({children}) => {
       })
       dispatch({type: 'ADD_ANIME_TO_FAVOURITE' , payload: addedAnime})
     } catch (error) {
-      console.log(error.message)
+      toast.error('Something went wrong')
     }
   }
 
   const removeAnimeFromFavourite = async (mal_id) => {
-    const docRef = doc(db, 'users', auth.currentUser.uid)
-    await updateDoc(docRef, {
-      favourites: fav.favourites.filter(f => f.mal_id !== mal_id),
-      animeID: arrayRemove(mal_id)
-    })
+    try {
+      const docRef = doc(db, 'users', auth.currentUser.uid)
+      await updateDoc(docRef, {
+        favourites: fav.favourites.filter(f => f.mal_id !== mal_id),
+        animeID: arrayRemove(mal_id)
+      })
+    } catch (error) {
+      toast.error('Unable to remove anime')
+    }
     // const docSnap = await getDoc(docRef)
     // if(docSnap.exists()){
     //   await updateDoc(docRef)

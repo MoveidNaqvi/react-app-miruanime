@@ -13,11 +13,16 @@ function Signup() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setIsLoading] = useState(false)
+  const [error, setError] = useState(null)
 
   const navigate = useNavigate()
 
   const handleRegister = async (e) => {
+    setError(null)
     e.preventDefault()
+    if(password.length < 6 ){
+      return setError('Password must at least be 6 characters')
+    }
     try {
       setIsLoading(true)
       await createUserWithEmailAndPassword(auth, email, password)
@@ -39,11 +44,16 @@ function Signup() {
       })
       navigate('/favourite')
     } catch (error) {
-      toast.error(error.message, {
-        autoClose: 1500,
-        pauseOnHover: false,
-      })
-      setIsLoading(false)
+      if(error.message = 'FirebaseError: Firebase: Error (auth/email-already-in-use).'){
+        toast.error('Email already in use!', {
+          autoClose: 1500,
+          pauseOnHover: false,
+        })
+        setIsLoading(false)
+      }
+      else{
+        setIsLoading(false)
+      }
     }
   }
 
@@ -81,6 +91,7 @@ function Signup() {
           <label>
             <input type="password" placeholder='Password' onChange={(e) => setPassword(e.target.value)} value={password} required/>
           </label>
+          {error && <p>{error}</p>}
           <button className="sign-up-btn" disabled={loading}>{!loading ? 'Register' : 'loading...'}</button>
           <div className="other-login"><ImGoogle3 size={40} onClick={handleGoogleLogin} className='google-icon'/></div>
           <p className="alternative">Already have an account? <Link to='/sign-in' className='login-link'>Login here!</Link></p>
