@@ -16,7 +16,6 @@ function About() {
             <div className="social-links">
               <ul>
                 <li><a href="https://github.com/MoveidNaqvi" target='_blank' rel='noreferrer'><BsGithub size={35}/></a></li>
-                <li><a href="https://www.instagram.com/syedmoveid/" target='_blank' rel='noreferrer'><BsInstagram size={35}/></a></li>
               </ul>
             </div>
           </div>
