@@ -5,7 +5,7 @@ import { auth, db } from '../../firebase/config'
 import {toast} from 'react-toastify'
 import {ImGoogle3} from 'react-icons/im'
 import './Signin.css'
-import { doc, setDoc } from 'firebase/firestore'
+import { doc, getDoc, setDoc } from 'firebase/firestore'
 
 function Signin() {
 
@@ -37,12 +37,19 @@ function Signin() {
       const provider = new GoogleAuthProvider()
       await signInWithPopup(auth, provider)
       const userDocRef = doc(db, 'users', auth.currentUser.uid)
-      await setDoc(userDocRef, {
-        favourites: [],
-        animeID: []
-      })
-      setIsLoading(false)
-      navigate('/favourite')
+      const docSnap = await getDoc(userDocRef);
+      if(docSnap.exists()){
+        setIsLoading(false)
+        navigate('/favourite')
+      }
+      else{
+        await setDoc(userDocRef, {
+          favourites: [],
+          animeID: []
+        })
+        setIsLoading(false)
+        navigate('/favourite')
+      }
     } catch (error) {
       toast.error('Could not authorise with Google', {
         autoClose: 1500,
