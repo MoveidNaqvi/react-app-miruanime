@@ -1,9 +1,8 @@
-import {createUserWithEmailAndPassword, updateProfile, signInWithPopup, GoogleAuthProvider} from 'firebase/auth'
+import {createUserWithEmailAndPassword, updateProfile} from 'firebase/auth'
 import {auth, db} from '../../firebase/config'
 import { Link, useNavigate } from 'react-router-dom'
 import {useState} from 'react'
 import { toast } from 'react-toastify'
-import {ImGoogle3} from 'react-icons/im'
 import './Signup.css'
 import { doc, setDoc } from 'firebase/firestore'
 
@@ -57,27 +56,6 @@ function Signup() {
     }
   }
 
-  const handleGoogleLogin = async () => {
-    try {
-      setIsLoading(true)
-      const provider = new GoogleAuthProvider()
-      await signInWithPopup(auth, provider)
-      const userDocRef = doc(db, 'users', auth.currentUser.uid)
-      await setDoc(userDocRef, {
-        favourites: [],
-        animeID: []
-      })
-      setIsLoading(false)
-      navigate('/favourite')
-    } catch (error) {
-      toast.error('Could not authorise with Google', {
-        autoClose: 1500,
-        pauseOnHover: false,
-      })
-      setIsLoading(false)
-    }
-  }
-
   return (
     <>
       <div className="sign-up">
@@ -93,7 +71,6 @@ function Signup() {
           </label>
           {error && <p>{error}</p>}
           <button className="sign-up-btn" disabled={loading}>{!loading ? 'Register' : 'loading...'}</button>
-          <div className="other-login"><ImGoogle3 size={40} onClick={handleGoogleLogin} className='google-icon'/></div>
           <p className="alternative">Already have an account? <Link to='/sign-in' className='login-link'>Login here!</Link></p>
         </form>
       </div>
