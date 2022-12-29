@@ -47,9 +47,9 @@ function AnimePagination({setPage, numberOfPages}) {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className='pagination-bar'>
+      <div className='w-fit mx-auto m-4'>
         <Stack spacing={2}>
-          <Pagination onChange={(e) => handleChange(e.target.textContent)} count={numberOfPages} hidePrevButton hideNextButton color='primary' />
+          <Pagination onChange={(e) => handleChange(e.target.textContent)} count={numberOfPages} hidePrevButton hideNextButton color='primary' className='p-2' />
         </Stack>
       </div>
     </ThemeProvider>

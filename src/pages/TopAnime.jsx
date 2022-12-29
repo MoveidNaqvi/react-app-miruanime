@@ -20,14 +20,18 @@ function TopAnime() {
 
   return (
     <div className="top-anime">
-    <Header/>
-    {error && <Error/>}
-    {isPending && <Spinner/>}
-    {data && topAnime && <h1>Top Anime</h1>}
-    {data && topAnime && <AnimeList animelist={topAnime}/>}
-    {data && topAnime && <AnimePagination setPage={setPage} numberOfPages={numberOfPages}/>}
-  </div>
-  )
+      <Header />
+      {error && <Error />}
+      {isPending && <Spinner />}
+      {data && topAnime && (
+        <h1 className=" text-3xl font-bold">Top Anime</h1>
+      )}
+      {data && topAnime && <AnimeList animelist={topAnime} />}
+      {data && topAnime && (
+        <AnimePagination setPage={setPage} numberOfPages={numberOfPages} />
+      )}
+    </div>
+  );
 }
 
 export default TopAnime

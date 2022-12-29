@@ -1,4 +1,4 @@
-ul{
+/* ul{
   list-style-type: none;
 }
 a:-webkit-any-link {
@@ -10,7 +10,7 @@ a:-webkit-any-link {
 .navbar-container{
   color: #EEEEEE;
   font-size: 1.2rem;
-  background-color: #393E46;
+  background-color: #393e46;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin-bottom: 1rem;
 }
@@ -93,4 +93,4 @@ nav{
     text-align: center;
   }
 
-}
+} */

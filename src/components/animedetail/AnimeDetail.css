@@ -1,4 +1,4 @@
-main{
+/* main{
   padding: 1rem;
 }
 
@@ -159,7 +159,7 @@ main{
   }
 } */
 
-@media(max-width:1288px){
+/* @media(max-width:1288px){
   .cover{
     grid-column: span 2;
     text-align: center;
@@ -205,4 +205,4 @@ main{
   .statistics{
     grid-template-columns: 1fr;
   }
-}
+} */

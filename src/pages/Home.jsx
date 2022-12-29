@@ -25,7 +25,7 @@ function Home() {
       <Header/>
       {error && <Error/>}
       {isPending && <Spinner/>}
-      {data && <h1>Airing Anime</h1>}
+      {data && <h1 className=' text-3xl font-bold'>Airing Anime</h1>}
       {data && <AnimeList animelist={data}/>}
       {data && airingAnime && <AnimePagination setPage={setPage} numberOfPages={numberOfPages}/>}
     </div>

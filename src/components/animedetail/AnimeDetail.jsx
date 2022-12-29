@@ -101,7 +101,141 @@ function AnimeDetail({anime}) {
   // const favouriteBtnDisabled = storedAnime ? true : false
   return (
     <main>
-      <div className='grid-container'>
+      <section className="bg-[#393e46] rounded-lg text-white m-4">
+        <div className="lg:flex">
+          <img
+            src={anime.data.images.webp.large_image_url}
+            alt=""
+            className="rounded-t-xl w-full h-full md:w-auto md:rounded-lg md:mx-auto md:mt-4 lg:mt-0 lg:w-full lg:h-full lg:rounded-none lg:rounded-tl-lg lg:rounded-br-lg"
+          />
+          <div className="p-4">
+            <div className="flex justify-between items-center">
+              <h2 className="font-bold text-xl tracking-wide">
+                {anime.data.title_english
+                  ? anime.data.title_english
+                  : anime.data.title}
+              </h2>
+              {loggedIn && favouriteBtnDisabled != null && (
+              <button
+                className="bg-[#222831] p-2 rounded-lg"
+                onClick={() => handleFavAnime(anime.data)}
+                disabled={favouriteBtnDisabled}
+              >
+                <FaHeart
+                  className={
+                    favouriteBtnDisabled
+                      ? "favourite-icon disabled"
+                      : "favourite-icon"
+                  }
+                  size={28}
+                />
+              </button>
+              )}
+            </div>
+            <h3 className="text-lg">{anime.data.title_japanese}</h3>
+            <div className="text-lg">
+              <p>
+                <span className="font-bold tracking-wider">Synopsis: </span>
+                {anime.data.synopsis?.replace("[Written by MAL Rewrite]", "")}
+              </p>
+              <p>
+                <span className="font-bold tracking-wider">Type: </span>
+                {anime.data.type}
+              </p>
+              <p>
+                <span className="font-bold tracking-wider">Episodes: </span>
+                {anime.data.episodes}
+              </p>
+              <p>
+                <span className="font-bold tracking-wider">Rating: </span>
+                {anime.data.rating}
+              </p>
+            </div>
+            <div className="flex flex-wrap space-x-2">
+              {anime.data.genres.map((genre) => (
+                <div
+                  key={genre.mal_id}
+                  className="bg-[#222831] p-2 rounded-lg my-2"
+                >
+                  {genre.name}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col gap-2 xl:flex-row m-4">
+          <div className="flex justify-between p-2 items-center bg-[#222831] w-full rounded-lg">
+            <div className="flex flex-col">
+              <span className="text-sm text-gray-300">Rank</span>
+              <span className="text-lg">
+                {anime.data.rank ? anime.data.rank : <p>Unavailable</p>}
+              </span>
+            </div>
+            <GiPodium size={40} />
+          </div>
+          <div className="flex justify-between p-2 items-center bg-[#222831] w-full rounded-lg">
+            <div className="flex flex-col">
+              <span className="text-sm text-gray-300">Popularity</span>
+              <span className="text-lg">
+                {anime.data.popularity ? (
+                  anime.data.popularity
+                ) : (
+                  <p>Unavailable</p>
+                )}
+              </span>
+            </div>
+            <MdLocalFireDepartment size={40} className="text-orange-600" />
+          </div>
+          <div className="flex justify-between p-2 items-center bg-[#222831] w-full rounded-lg">
+            <div className="flex flex-col">
+              <span className="text-sm text-gray-300">Score</span>
+              <span className="text-lg">
+                {anime.data.score ? anime.data.score : <p>Unavailable</p>}
+              </span>
+            </div>
+            <FaStar size={40} className="text-yellow-400" />
+          </div>
+          <div className="flex justify-between p-2 items-center bg-[#222831] w-full rounded-lg">
+            <div className="flex flex-col">
+              <span className="text-sm text-gray-300">Release Year</span>
+              <span className="text-lg">
+                {anime.data.year ? anime.data.year : <p>Unavailable</p>}
+              </span>
+            </div>
+            <MdDateRange size={40} />
+          </div>
+          <div className="flex justify-between p-2 items-center bg-[#222831] w-full rounded-lg">
+            <div className="flex flex-col">
+              <span className="text-sm text-gray-300">Season</span>
+              <span className="text-lg">
+                {anime.data.season ? (
+                  anime.data.season.charAt(0).toUpperCase() +
+                  anime.data.season.slice(1)
+                ) : (
+                  <p>Unavailable</p>
+                )}
+              </span>
+            </div>
+            <BsCloudSun size={40} />
+          </div>
+          <div className="flex justify-between p-2 items-center bg-[#222831] w-full rounded-lg">
+            <div className="flex flex-col">
+              <span className="text-sm text-gray-300">Status</span>
+              <span className="text-lg">
+                {anime.data.status ? anime.data.status : <p>Unavailable</p>}
+              </span>
+            </div>
+            <BiMoviePlay size={40} />
+          </div>
+        </div>
+        <div className="m-4 rounded-lg">
+          <YoutubeEmbed
+            embedId={anime.data.trailer.youtube_id}
+            className="absolute top-0 left-0 w-full h-full"
+          />
+        </div>
+      </section>
+      {/* <div className='grid-container'>
         <div className="anime cover"><img src={anime.data.images.webp.large_image_url} alt="" className="animeCover" /></div>
         <div className="detail">
           <div className="header">
@@ -190,9 +324,9 @@ function AnimeDetail({anime}) {
             <YoutubeEmbed embedId={anime.data.trailer.youtube_id}/>
           </div>
         </div>
-      </div>
+      </div> */}
     </main>
-  )
+  );
 }
 
 export default AnimeDetail

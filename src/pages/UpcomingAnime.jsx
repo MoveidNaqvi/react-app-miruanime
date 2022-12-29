@@ -20,14 +20,16 @@ function UpcomingAnime() {
   }, [setUpcomingAnime, data, page]);
   return (
     <div className="upcoming-anime">
-      <Header/>
-      {error && <Error/>}
-      {isPending && <Spinner/>}
-      {data && <h1>Upcoming Anime</h1>}
-      {data && <AnimeList animelist={data}/>}
-      {data && upcomingAnime && <AnimePagination setPage={setPage} numberOfPages={numberOfPages}/>}
+      <Header />
+      {error && <Error />}
+      {isPending && <Spinner />}
+      {data && <h1 className=" text-3xl font-bold">Upcoming Anime</h1>}
+      {data && <AnimeList animelist={data} />}
+      {data && upcomingAnime && (
+        <AnimePagination setPage={setPage} numberOfPages={numberOfPages} />
+      )}
     </div>
-  )
+  );
 }
 
 export default UpcomingAnime

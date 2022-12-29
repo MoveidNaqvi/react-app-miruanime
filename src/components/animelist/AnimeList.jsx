@@ -12,7 +12,29 @@ function AnimeList({animelist, type}) {
 
   return (
     <>
-      <div className="anime-container">
+      <div className="flex flex-wrap justify-center gap-4 mb-6">
+        {animelist.data.map((item) => (
+          <div
+            className="relative group rounded-2xl overflow-hidden w-[200px] shadow-xl"
+            key={item.mal_id}
+          >
+            <Link to={`/anime/${item.mal_id}`}>
+              <img
+                src={item.images.webp.large_image_url}
+                alt=""
+                className="w-full h-full object-center"
+              />
+            </Link>
+            <Controls type={type} anime={item} />
+            <div className="absolute bottom-0 left-0 right-0 p-2 text-white bg-cyan-500 opacity-0 group-hover:opacity-100 duration-300">
+              <h3 className="text-white">
+                {item.title_english ? item.title_english : item.title}
+              </h3>
+            </div>
+          </div>
+        ))}
+      </div>
+      {/* <div className="anime-container">
         <div className='anime-list'>
           {animelist.data.map(item => (
             <div className="anime-card" key={item.mal_id}>
@@ -28,9 +50,9 @@ function AnimeList({animelist, type}) {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
     </>
-  )
+  );
 }
 
 export default AnimeList
