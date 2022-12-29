@@ -124,7 +124,7 @@ function AnimeDetail({anime}) {
                 <FaHeart
                   className={
                     favouriteBtnDisabled
-                      ? "favourite-icon disabled"
+                      ? "text-red-700 transition-all duration-200"
                       : "favourite-icon"
                   }
                   size={28}

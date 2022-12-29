@@ -6,7 +6,7 @@ function AnimeList({animelist, type}) {
 
   if( animelist.data.length === 0){
     return <div className="no-anime">
-      <h1>No anime found!</h1>
+      <h1 className='text-2xl'>No anime found!</h1>
     </div>
   }
 

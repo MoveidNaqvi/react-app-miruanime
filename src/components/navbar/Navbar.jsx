@@ -34,6 +34,7 @@ function Navbar() {
             >
               Favourites
             </Link>
+            {loggedIn && <button className="bg-[#222831] p-2 rounded-lg hover:bg-cyan-400 transition-all duration-200" onClick={handleLogout}>Logout</button>}
           </div>
         </nav>
       </header>
