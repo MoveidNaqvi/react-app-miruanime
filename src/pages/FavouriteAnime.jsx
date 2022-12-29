@@ -26,12 +26,12 @@ function FavouriteAnime() {
   const [favouriteAnimeArray] = [{data:  documents?.favourites}]
 
   return (
-    <div className='fav-anime'>
-      <h1>Welcome {auth.currentUser.displayName}</h1>
+    <div className='text-white text-center space-y-4'>
+      <h1 className='font-bold text-3xl mt-4'>Welcome {auth.currentUser.displayName}</h1>
       {documents ? <>
         <AnimeList animelist={favouriteAnimeArray} type='favourite'/>
-        <span className='about-me-link'><Link to='/about'><BsQuestionCircleFill className='question' size={40}/></Link></span>
-      </> : <h1>No anime added yet!</h1>}
+        <span className='flex justify-center items-center'><Link to='/about'><BsQuestionCircleFill className='question' size={40}/></Link></span>
+      </> :  ""}
     </div>
   )
 }
