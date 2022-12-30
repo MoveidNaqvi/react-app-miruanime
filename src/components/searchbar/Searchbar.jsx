@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import {useNavigate, createSearchParams} from 'react-router-dom'
-import './Searchbar.css'
+
 function Searchbar() {
   const [term, setTerm] = useState('')
   const navigate = useNavigate()
@@ -24,10 +24,18 @@ function Searchbar() {
   }
   
   return (
-    <form onSubmit={handleSubmit} className='search-bar'>
-      <input type="text" placeholder='Search an anime' onChange={(e) => setTerm(e.target.value)} value={term} />
+    <form onSubmit={handleSubmit} className='text-lg'>
+      <input
+        type="text"
+        placeholder="Search an anime"
+        onChange={(e) => setTerm(e.target.value)}
+        value={term}
+        className="bg-[#222831] p-2 rounded-lg placeholder:text-white
+        text-center
+        "
+      />
     </form>
-  )
+  );
 }
 
 export default Searchbar

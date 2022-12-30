@@ -2,7 +2,6 @@ import {useParams} from 'react-router-dom'
 import AnimeDetail from '../components/animedetail/AnimeDetail'
 import Spinner from '../components/spinner/Spinner'
 import { useFetch } from '../hooks/useFetch'
-import './Anime.css'
 import Error from './Error'
 
 function Anime() {

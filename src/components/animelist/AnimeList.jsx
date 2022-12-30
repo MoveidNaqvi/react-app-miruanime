@@ -1,6 +1,5 @@
 import {Link} from 'react-router-dom'
 import Controls from '../favouriteAnimeControls/Controls'
-import './AnimeList.css'
 
 function AnimeList({animelist, type}) {
 

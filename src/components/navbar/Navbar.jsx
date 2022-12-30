@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import Searchbar from '../searchbar/Searchbar'
 import weblogo from '../../assets/images/webLogo.webp'
-import './Navbar.css'
 import { auth } from '../../firebase/config'
 import useAuthStatus from '../../hooks/useAuthStatus'
 

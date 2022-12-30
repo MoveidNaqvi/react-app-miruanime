@@ -1,6 +1,5 @@
 import {useSearchParams } from 'react-router-dom'
 import { useFetch } from '../hooks/useFetch'
-import './SearchPage.css'
 import Spinner from '../components/spinner/Spinner'
 import Error from './Error'
 import AnimeList from '../components/animelist/AnimeList'
@@ -22,7 +21,7 @@ function SearchPage() {
     setNumberOfPages(data && Math.ceil(data.pagination.items.total / 25))
   }, [setSearchAnime, data, page]);
   return (
-    <div className='home'>
+    <div className='home mt-8'>
       {error && <Error/>}
       {isPending && <Spinner/>}
       {data && <AnimeList animelist={data}/>}

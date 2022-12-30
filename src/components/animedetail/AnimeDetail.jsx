@@ -3,7 +3,6 @@ import {useParams} from 'react-router-dom'
 import { toast } from 'react-toastify'
 import FavouriteAnimeContext from '../../context/FavouriteAnimeContext'
 import useAuthStatus from '../../hooks/useAuthStatus'
-import './AnimeDetail.css'
 import { GiPodium } from 'react-icons/gi'
 import { MdDateRange, MdLocalFireDepartment} from 'react-icons/md'
 import { FaHeart, FaStar } from 'react-icons/fa'
@@ -106,7 +105,7 @@ function AnimeDetail({anime}) {
           <img
             src={anime.data.images.webp.large_image_url}
             alt=""
-            className="rounded-t-xl w-full h-full md:w-auto md:rounded-lg md:mx-auto md:mt-4 lg:mt-0 lg:w-full lg:h-full lg:rounded-none lg:rounded-tl-lg lg:rounded-br-lg"
+            className="rounded-t-xl w-full h-full md:w-auto md:rounded-lg md:mx-auto md:mt-4 lg:mt-0 lg:w-full lg:h-full lg:rounded-none lg:mx-0 lg:rounded-tl-lg lg:rounded-br-lg"
           />
           <div className="p-4">
             <div className="flex justify-between items-center">

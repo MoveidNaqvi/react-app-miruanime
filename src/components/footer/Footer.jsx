@@ -1,12 +1,11 @@
-import './Footer.css'
 function Footer() {
 
   const footerYear = new Date().getFullYear()
   return (
-    <div className="footer">
+    <div className="bg-[#393e46] text-white text-center text-xl p-3">
       <footer>Copyright &copy; {footerYear} All rights reserved</footer>
     </div>
-  )
+  );
 }
 
 export default Footer

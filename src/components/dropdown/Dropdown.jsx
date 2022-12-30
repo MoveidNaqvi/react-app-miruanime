@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { FiChevronUp } from "react-icons/fi";
-import "./Dropdown.css";
 import { useState } from "react";
 
 function Dropdown() {

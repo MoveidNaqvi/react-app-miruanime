@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
 import AnimeList from "../components/animelist/AnimeList"
-import './FavouriteAnime.css'
 import { doc, onSnapshot} from 'firebase/firestore'
 import { auth } from '../firebase/config'
 import { db } from '../firebase/config'

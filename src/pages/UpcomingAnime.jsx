@@ -6,7 +6,6 @@ import AnimeList from "../components/animelist/AnimeList"
 import { useState } from 'react'
 import { useEffect } from 'react'
 import AnimePagination from '../components/pagination/AnimePagination'
-import './UpcomingAnime.css'
 
 function UpcomingAnime() {
 
@@ -23,7 +22,11 @@ function UpcomingAnime() {
       <Header />
       {error && <Error />}
       {isPending && <Spinner />}
-      {data && <h1 className=" text-3xl font-bold">Upcoming Anime</h1>}
+      {data && (
+        <h1 className="text-3xl font-bold text-white text-center mb-4">
+          Upcoming Anime
+        </h1>
+      )}
       {data && <AnimeList animelist={data} />}
       {data && upcomingAnime && (
         <AnimePagination setPage={setPage} numberOfPages={numberOfPages} />

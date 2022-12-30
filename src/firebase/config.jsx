@@ -3,12 +3,12 @@ import {getAuth} from 'firebase/auth'
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_APP_ID,
+  apiKey: "AIzaSyAfWBBKkKaN12yJ0Ss-XAGRnq1OOMc1WnA",
+  authDomain: "thetrellosite.firebaseapp.com",
+  projectId: "thetrellosite",
+  storageBucket: "thetrellosite.appspot.com",
+  messagingSenderId: "308061728925",
+  appId: "1:308061728925:web:51d1764bc0b4d884172474",
 };
 
 initializeApp(firebaseConfig);
