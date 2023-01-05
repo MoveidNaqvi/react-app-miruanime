@@ -227,7 +227,7 @@ function AnimeDetail({anime}) {
             <BiMoviePlay size={40} />
           </div>
         </div>
-        <div className="m-4 rounded-lg">
+        <div className="m-4 rounded-lg pb-4">
           <YoutubeEmbed
             embedId={anime.data.trailer.youtube_id}
             className="absolute top-0 left-0 w-full h-full"
