@@ -1,4 +1,3 @@
-import Header from "../Header"
 import { useFetch } from '../hooks/useFetch'
 import Error from "./Error"
 import Spinner from "../components/spinner/Spinner"
@@ -6,6 +5,7 @@ import AnimeList from "../components/animelist/AnimeList"
 import { useState } from 'react'
 import { useEffect } from 'react'
 import AnimePagination from '../components/pagination/AnimePagination'
+import Dropdown from "../components/dropdown/Dropdown";
 
 function UpcomingAnime() {
 
@@ -19,9 +19,9 @@ function UpcomingAnime() {
   }, [setUpcomingAnime, data, page]);
   return (
     <div className="upcoming-anime">
-      <Header />
       {error && <Error />}
       {isPending && <Spinner />}
+      {data && <Dropdown />}
       {data && (
         <h1 className="text-3xl font-bold text-white text-center mb-4">
           Upcoming Anime

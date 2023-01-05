@@ -4,10 +4,10 @@ import { useFetch } from '../hooks/useFetch'
 import Spinner from '../components/spinner/Spinner'
 import './Home.css'
 import Error from './Error'
-import Header from '../Header'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import AnimePagination from '../components/pagination/AnimePagination'
+import Dropdown from "../components/dropdown/Dropdown";
 
 function Home() {
 
@@ -22,9 +22,9 @@ function Home() {
 
   return (
     <div className='home'>
-      <Header/>
       {error && <Error/>}
       {isPending && <Spinner/>}
+      {data && <Dropdown/>}
       {data && <h1 className=' text-3xl font-bold'>Airing Anime</h1>}
       {data && <AnimeList animelist={data}/>}
       {data && airingAnime && <AnimePagination setPage={setPage} numberOfPages={numberOfPages}/>}
