@@ -14,7 +14,7 @@ function Navbar() {
 
   return (
     <>
-      <header className="bg-[#393e46] text-white">
+      <header className="bg-[#393e46] text-white w-full">
         <nav className="flex flex-col gap-3 items-center shadow-lg sm:flex-row sm:justify-between p-3">
           <Link to="/">
             <img src={weblogo} alt="" className="w-20 cursor-pointer" />

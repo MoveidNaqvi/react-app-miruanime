@@ -10,7 +10,6 @@ import SearchPage from './pages/SearchPage';
 import Footer from './components/footer/Footer';
 import UpcomingAnime from './pages/UpcomingAnime';
 import TopAnime from './pages/TopAnime';
-import './App.css'
 import FavouriteAnime from './pages/FavouriteAnime';
 import Signin from './pages/Signin/Signin'
 import { FavouriteAnimeProvider } from './context/FavouriteAnimeContext'
@@ -21,8 +20,9 @@ function App() {
   return (
     <FavouriteAnimeProvider>
       <Router>
+        <div className='flex flex-col justify-between items-center min-h-screen h-full'>
         <Navbar />
-        <div className="body-container">
+        <div className=' max-w-[100rem]'>
           <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/upcoming' element={<UpcomingAnime/>}/>
@@ -37,6 +37,7 @@ function App() {
           </Routes>
         </div>
         <Footer/>
+        </div>
       </Router>
       <ToastContainer toastStyle={{backgroundColor: '#222831', color: '#fff', fontFamily: 'inherit'}} closeButton={false}/>
     </FavouriteAnimeProvider>
