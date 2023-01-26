@@ -95,7 +95,7 @@ function Signup() {
             </button>
           </form>
           <p className="text-white text-xl mt-2 text-center">
-            Don't have an account?
+            Already have an account?
             <br />
             <Link to="/sign-in" className="text-cyan-400 cursor-pointer">
               Sign in here!
