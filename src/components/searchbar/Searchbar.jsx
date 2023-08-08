@@ -31,7 +31,7 @@ function Searchbar() {
         onChange={(e) => setTerm(e.target.value)}
         value={term}
         className="bg-[#222831] p-2 rounded-lg placeholder:text-white
-        text-center
+        text-center mx-2
         "
       />
     </form>
