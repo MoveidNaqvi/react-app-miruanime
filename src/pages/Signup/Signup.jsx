@@ -61,7 +61,7 @@ function Signup() {
   return (
     <>
       <div className="flex justify-center items-center h-full min-h-[88.5vh]">
-        <div className="bg-[#393E46] p-8 rounded-lg shadow-lg w-[400px] max-w-full m-4">
+        <div className="bg-[#393E46] p-8 rounded-lg shadow-lg m-4">
           <h1 className="text-white font-bold tracking-wide text-3xl text-center mb-4">
             Register
           </h1>
