@@ -11,7 +11,7 @@ function AnimeList({animelist, type}) {
 
   return (
     <>
-      <div className="flex flex-wrap justify-center gap-4 mb-6">
+      <div className="flex flex-wrap justify-center gap-4 mb-6 mx-4">
         {animelist.data.map((item) => (
           <div
             className="relative group rounded-2xl overflow-hidden w-[200px] shadow-xl"

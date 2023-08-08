@@ -4,4 +4,4 @@ This project is called MiruAnime (みるアニメ) which translates to WatchAnim
 
 # UPDATES
 
-Website may not be styled correctly since it is under update. All styles are being done by TailwindCSS.
+Styling refactoring done. TailwindCSS is now used for styling.
