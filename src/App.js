@@ -19,15 +19,15 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<RootLayout/>}>
       <Route index element={<Home />} />
-      <Route path='/upcoming' element={<UpcomingAnime />} />
-      <Route path='/top' element={<TopAnime />} />
-      <Route path='/about' element={<About />} />
-      <Route path='/anime/:id' element={<Anime />} />
-      <Route path='/search' element={<SearchPage />} />
-      <Route path='/favourite' element={<PrivateRoute><FavouriteAnime /></PrivateRoute>} />
-      <Route path='/sign-in' element={<Signin />} />
-      <Route path='/sign-up' element={<Signup />} />
-      <Route path='/*' element={<Error />} />
+      <Route path='upcoming' element={<UpcomingAnime />} />
+      <Route path='top' element={<TopAnime />} />
+      <Route path='about' element={<About />} />
+      <Route path='anime/:id' element={<Anime />} />
+      <Route path='search' element={<SearchPage />} />
+      <Route path='favourite' element={<PrivateRoute><FavouriteAnime /></PrivateRoute>} />
+      <Route path='sign-in' element={<Signin />} />
+      <Route path='sign-up' element={<Signup />} />
+      <Route path='*' element={<Error />} />
     </Route>
   )
 )
