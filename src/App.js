@@ -1,10 +1,10 @@
 import {Route, createBrowserRouter, RouterProvider, createRoutesFromElements} from 'react-router-dom'
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
-import Home from "./pages/Home"
+import Home, { animeLoader } from "./pages/Home"
 import About from "./pages/About"
 import Error from './pages/Error';
-import Anime from './pages/Anime';
+import Anime, { animeDetailsLoader } from './pages/Anime';
 import SearchPage from './pages/SearchPage';
 import UpcomingAnime from './pages/UpcomingAnime';
 import TopAnime from './pages/TopAnime';
@@ -14,15 +14,18 @@ import { FavouriteAnimeProvider } from './context/FavouriteAnimeContext'
 import Signup from './pages/Signup/Signup';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import RootLayout from './pages/RootLayout';
+import AnimeError from './components/AnimeError/AnimeError';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<RootLayout/>}>
-      <Route index element={<Home />} />
+    <Route path='/' 
+    element={<RootLayout/>}
+    >
+      <Route index element={<Home />} loader={animeLoader} errorElement={<AnimeError/>} />
       <Route path='upcoming' element={<UpcomingAnime />} />
       <Route path='top' element={<TopAnime />} />
       <Route path='about' element={<About />} />
-      <Route path='anime/:id' element={<Anime />} />
+      <Route path='anime/:id' element={<Anime />} loader={animeDetailsLoader} />
       <Route path='search' element={<SearchPage />} />
       <Route path='favourite' element={<PrivateRoute><FavouriteAnime /></PrivateRoute>} />
       <Route path='sign-in' element={<Signin />} />

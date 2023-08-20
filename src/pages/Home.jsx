@@ -1,35 +1,30 @@
 import React from 'react'
 import AnimeList from '../components/animelist/AnimeList'
-import { useFetch } from '../hooks/useFetch'
-import Spinner from '../components/spinner/Spinner'
+import { useLoaderData} from 'react-router-dom'
 import './Home.css'
-import Error from './Error'
-import { useState } from 'react'
-import { useEffect } from 'react'
-import AnimePagination from '../components/pagination/AnimePagination'
 import Dropdown from "../components/dropdown/Dropdown";
 
 function Home() {
-
-  const [airingAnime, setAiringAnime] = useState([])
-  const [page, setPage] = useState(1)
-  const [numberOfPages, setNumberOfPages] = useState(0)
-  const {data, isPending, error} = useFetch(`https://api.jikan.moe/v4/top/anime?type=tv&filter=airing&page=${page}`)
-  useEffect(() => {
-    setAiringAnime(data)
-    setNumberOfPages(data && Math.ceil(data.pagination.items.total / 25))
-  }, [setAiringAnime, data, page]);
-
+  const anime = useLoaderData()
   return (
     <div className='home'>
-      {error && <Error/>}
-      {isPending && <Spinner/>}
-      {data && <Dropdown/>}
-      {data && <h1 className=' text-3xl font-bold'>Airing Anime</h1>}
-      {data && <AnimeList animelist={data}/>}
-      {data && airingAnime && <AnimePagination setPage={setPage} numberOfPages={numberOfPages}/>}
+      <Dropdown/>
+      <h1 className=' text-3xl font-bold'>Airing Anime</h1>
+      <AnimeList animelist={anime}/>
     </div>
   )
 }
 
 export default Home
+
+// loader function
+
+export const animeLoader = async () => {
+  const res = await fetch(
+    "https://api.jikan.moe/v4/top/anime?type=tv&filter=airing"
+  );
+  if (!res.ok) {
+    throw Error("Could not fetch anime");
+  }
+  return res.json()
+}
